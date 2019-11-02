@@ -10,6 +10,7 @@ public class TableView extends HBox implements CardObserver, Observer {
     private int jogador;
     private CardDeck cDeck;
     private Card selectedCard;
+    private Table table;
 
 
     public TableView(int nroJog) {
@@ -41,6 +42,17 @@ public class TableView extends HBox implements CardObserver, Observer {
         Game.getInstance().play(cDeck);
     }
 
+    private void addSel() {
+        List cards = getChildren();
+        for (int i = 0; i < cards.size(); i++) {
+            CardView cv = (CardView) cards.get(i);
+            if (cv.getCard() == selectedCard) {
+                getChildren().add(cv);
+                selectedCard = null;
+            }
+        }
+    }
+
     private void removeSel() {
         List cards = getChildren();
         for (int i = 0; i < cards.size(); i++) {
@@ -61,8 +73,8 @@ public class TableView extends HBox implements CardObserver, Observer {
         if (ge.getTarget() != GameEvent.Target.DECK) {
             return;
         }
-        if (ge.getAction() == GameEvent.Action.REMOVESEL) {
-            removeSel();
+        if (ge.getAction() == GameEvent.Action.ADDSEL) {
+            addSel();
         }
     }
 }
