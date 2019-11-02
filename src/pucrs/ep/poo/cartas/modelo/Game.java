@@ -18,8 +18,8 @@ public class Game extends Observable{
     private Game(){
         ptsJ1 = 0;
         ptsJ2 = 0;
-        deckJ1 = new CardDeck();
-        deckJ2 = new CardDeck();
+        deckJ1 = new CardDeck(1);
+        deckJ2 = new CardDeck(2);
         player = 1;
         jogadas = CardDeck.NCARDS;
     }

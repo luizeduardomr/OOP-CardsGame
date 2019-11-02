@@ -11,16 +11,30 @@ public class CardDeck extends Observable{
     private List<Card> cartas;
     private Card selected;
     
-    public CardDeck(){
+    public CardDeck(int jogador){
        cartas = new ArrayList<Card>(NCARDS);
        selected = null;
        Random r = new Random();
-       for(int i=0;i<NCARDS;i++){
-           int n = r.nextInt(10)+1;
-           Card c = new Card("C"+n,"img"+n,n);
-           c.flip();
-           cartas.add(c);
+
+       //jogador 1 só recebe as cartas de 1 até 5
+       if (jogador==1) {
+           for (int i = 0; i < NCARDS; i++) {
+               int n = r.nextInt(5) + 1;
+               Card c = new Card("C" + n, "img" + n, n);
+               c.flip();
+               cartas.add(c);
+           }
        }
+
+       //jogador 2 só recebe as cartas de 6 até 10
+        else if (jogador==2) {
+            for (int i = 0; i < NCARDS; i++) {
+                int n = r.nextInt(5) + 6;
+                Card c = new Card("C" + n, "img" + n, n);
+                c.flip();
+                cartas.add(c);
+            }
+        }
     }
         
     public List<Card> getCards(){
