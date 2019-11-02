@@ -109,7 +109,7 @@ public class GameWindow extends Application implements Observer {
         grid4.setVgap(10);
         grid4.setPadding(new Insets(25, 25, 25, 25));
 
-        TableView tableJ2 = new TableView(1);
+        TableView tableJ2 = new TableView(2);
         ScrollPane sd4 = new ScrollPane();
         sd4.setPrefSize(1500, 395);
         sd4.setContent(tableJ2);
