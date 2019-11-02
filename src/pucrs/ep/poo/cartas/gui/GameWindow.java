@@ -1,6 +1,7 @@
 package pucrs.ep.poo.cartas.gui;
 
 import java.util.*;
+
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -17,8 +18,8 @@ import javafx.event.*;
 import pucrs.ep.poo.cartas.modelo.Game;
 
 
-public class GameWindow extends Application implements Observer{
-   
+public class GameWindow extends Application implements Observer {
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -26,42 +27,29 @@ public class GameWindow extends Application implements Observer{
     @Override
     public void start(Stage primaryStage) {
         Game.getInstance().addObserver(this);
-        
+
         primaryStage.setTitle("Batalha de Cartas");
 
         Group root = new Group();
 
+        //Cria as tabs
         TabPane tabPane = new TabPane();
 
-        Tab tab1 = new Tab("Planes", new Label("Show all planes available"));
-        Tab tab2 = new Tab("Cars"  , new Label("Show all cars available"));
-        Tab tab3 = new Tab("Boats" , new Label("Show all boats available"));
+        Tab tab1 = new Tab("Mão Jogador 1");
+        Tab tab2 = new Tab("Mão Jogador 2");
+        Tab tab3 = new Tab("Mesa Jogador 1");
+        Tab tab4 = new Tab("Mesa Jogador 2");
 
         tabPane.getTabs().add(tab1);
         tabPane.getTabs().add(tab2);
         tabPane.getTabs().add(tab3);
+        tabPane.getTabs().add(tab4);
 
-
-        GridPane grid = new GridPane();
-        grid.setAlignment(Pos.CENTER);
-        grid.setHgap(10);
-        grid.setVgap(10);
-        grid.setPadding(new Insets(25, 25, 25, 25));
-
-
-        DeckView deckJ1 = new DeckView(1);
-        ScrollPane sd1 = new ScrollPane();
-        sd1.setPrefSize(1200, 400);
-        sd1.setContent(deckJ1);
-        grid.add(sd1,0,0);
-
-
+        //Cria o objeto placar
         PlacarView placar = new PlacarView();
-        grid.add(placar,0,1);
 
-
+        //Cria o botão
         Button butClean = new Button("Clean");
-        grid.add(butClean,1,1);
         butClean.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
@@ -69,16 +57,42 @@ public class GameWindow extends Application implements Observer{
             }
         });
 
+        // Jogador 1
+        GridPane grid1 = new GridPane();
+        grid1.setAlignment(Pos.CENTER);
+        grid1.setHgap(10);
+        grid1.setVgap(10);
+        grid1.setPadding(new Insets(25, 25, 25, 25));
+
+        DeckView deckJ1 = new DeckView(1);
+        ScrollPane sd1 = new ScrollPane();
+        sd1.setPrefSize(1500, 395);
+        sd1.setContent(deckJ1);
+        grid1.add(sd1, 0, 0);
+
+        grid1.add(placar, 0, 1);
+        grid1.add(butClean, 1, 1);
+
+        //Jogador 2
+        GridPane grid2 = new GridPane();
+        grid2.setAlignment(Pos.CENTER);
+        grid2.setHgap(10);
+        grid2.setVgap(10);
+        grid2.setPadding(new Insets(25, 25, 25, 25));
+
         DeckView deckJ2 = new DeckView(2);
         ScrollPane sd2 = new ScrollPane();
-        sd2.setPrefSize(1200, 400);
+        sd2.setPrefSize(1500, 395);
         sd2.setContent(deckJ2);
-        grid.add(sd2,0,2);
+        grid2.add(sd2, 0, 0);
 
-        tab1.setContent(grid);
+        grid2.add(placar, 0, 1);
+        grid2.add(butClean, 1, 1);
+
+        tab1.setContent(grid1);
+        tab2.setContent(grid2);
 
         ObservableList list = root.getChildren();
-        //list.add(grid);
         list.add(tabPane);
 
         Scene scene = new Scene(root);
@@ -88,38 +102,38 @@ public class GameWindow extends Application implements Observer{
     }
 
     @Override
-    public void update(Observable o,Object arg){
+    public void update(Observable o, Object arg) {
         Alert alert;
-        
-        if (arg == null){
+
+        if (arg == null) {
             return;
         }
-        GameEvent eg = (GameEvent)arg;
-        if (eg.getTarget() == GameEvent.Target.GWIN){
-            switch(eg.getAction()){
+        GameEvent eg = (GameEvent) arg;
+        if (eg.getTarget() == GameEvent.Target.GWIN) {
+            switch (eg.getAction()) {
                 case INVPLAY:
                     alert = new Alert(AlertType.WARNING);
                     alert.setTitle("Atenção !!");
                     alert.setHeaderText("Jogada inválida!!");
-                    alert.setContentText("Era a vez do jogador "+eg.getArg());
+                    alert.setContentText("Era a vez do jogador " + eg.getArg());
                     alert.showAndWait();
-                    break;                    
+                    break;
                 case MUSTCLEAN:
                     alert = new Alert(AlertType.WARNING);
                     alert.setTitle("Atenção !!");
                     alert.setHeaderText(null);
                     alert.setContentText("Utilize o botao \"Clean\"");
                     alert.showAndWait();
-                    break;                    
+                    break;
                 case ENDGAME:
                     alert = new Alert(AlertType.WARNING);
                     alert.setTitle("Atenção !!");
                     alert.setHeaderText(null);
                     alert.setContentText("Fim de Jogo !!");
                     alert.showAndWait();
-                    break;                    
+                    break;
             }
         }
     }
-    
+
 }
