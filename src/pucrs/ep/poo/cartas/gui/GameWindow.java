@@ -2,8 +2,10 @@ package pucrs.ep.poo.cartas.gui;
 
 import java.util.*;
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Button;
@@ -26,6 +28,8 @@ public class GameWindow extends Application implements Observer{
         Game.getInstance().addObserver(this);
         
         primaryStage.setTitle("Batalha de Cartas");
+
+        Group root = new Group();
 
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
@@ -56,8 +60,11 @@ public class GameWindow extends Application implements Observer{
         sd2.setPrefSize(950, 320);
         sd2.setContent(deckJ2);
         grid.add(sd2,0,2);
-                
-        Scene scene = new Scene(grid);
+
+        ObservableList list = root.getChildren();
+        list.add(grid);
+
+        Scene scene = new Scene(root);
         primaryStage.setScene(scene);        
         primaryStage.show();
     }
