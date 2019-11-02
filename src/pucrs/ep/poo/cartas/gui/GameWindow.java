@@ -57,7 +57,7 @@ public class GameWindow extends Application implements Observer {
             }
         });
 
-        // Jogador 1
+        // Mão Jogador 1
         GridPane grid1 = new GridPane();
         grid1.setAlignment(Pos.CENTER);
         grid1.setHgap(10);
@@ -73,7 +73,7 @@ public class GameWindow extends Application implements Observer {
         grid1.add(placar, 0, 1);
         grid1.add(butClean, 1, 1);
 
-        //Jogador 2
+        //Mão Jogador 2
         GridPane grid2 = new GridPane();
         grid2.setAlignment(Pos.CENTER);
         grid2.setHgap(10);
@@ -89,12 +89,43 @@ public class GameWindow extends Application implements Observer {
         grid2.add(placar, 0, 1);
         grid2.add(butClean, 1, 1);
 
+        // Mesa Jogador 1
+        GridPane grid3 = new GridPane();
+        grid3.setAlignment(Pos.CENTER);
+        grid3.setHgap(10);
+        grid3.setVgap(10);
+        grid3.setPadding(new Insets(25, 25, 25, 25));
+
+        TableView tableJ1 = new TableView(1);
+        ScrollPane sd3 = new ScrollPane();
+        sd3.setPrefSize(1500, 395);
+        sd3.setContent(tableJ1);
+        grid3.add(sd3, 0, 0);
+
+        // Mesa Jogador 2
+        GridPane grid4 = new GridPane();
+        grid4.setAlignment(Pos.CENTER);
+        grid4.setHgap(10);
+        grid4.setVgap(10);
+        grid4.setPadding(new Insets(25, 25, 25, 25));
+
+        TableView tableJ2 = new TableView(1);
+        ScrollPane sd4 = new ScrollPane();
+        sd4.setPrefSize(1500, 395);
+        sd4.setContent(tableJ2);
+        grid4.add(sd4, 0, 0);
+
+        //Coloca o conteúdo nas tabs adequadas
         tab1.setContent(grid1);
         tab2.setContent(grid2);
+        tab3.setContent(grid3);
+        tab4.setContent(grid4);
 
+        //Cria a lista de observadores (???)
         ObservableList list = root.getChildren();
         list.add(tabPane);
 
+        //Coloca o root na scene
         Scene scene = new Scene(root);
 
         primaryStage.setScene(scene);
