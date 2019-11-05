@@ -21,7 +21,7 @@ public class CardDeck extends Observable{
            for (int i = 0; i < NCARDS; i++) {
                int n = r.nextInt(5) + 1;
                Card c = new Card("C" + n, "img" + n, n);
-               c.flip();
+               //c.flip();
                cartas.add(c);
            }
        }
@@ -31,7 +31,7 @@ public class CardDeck extends Observable{
             for (int i = 0; i < NCARDS; i++) {
                 int n = r.nextInt(5) + 6;
                 Card c = new Card("C" + n, "img" + n, n);
-                c.flip();
+                //c.flip();
                 cartas.add(c);
             }
         }

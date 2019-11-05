@@ -13,10 +13,12 @@ public class CardView extends Button implements Observer{
     
     public CardView(Card aCard){
         super("",ImageFactory.getInstance().createImage("imgBck"));
+        //super("",ImageFactory.getInstance().createImage(card.getImageId()));
         card = aCard;
         card.addObserver(this);
         thisCard = this;
-        
+        card.flip();
+
         this.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
