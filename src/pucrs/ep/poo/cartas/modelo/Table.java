@@ -24,13 +24,13 @@ public class Table extends Observable{
         return(cartas.size());
     }
 
-    public void addSel(){
-        if (selected == null){
-            return;
-        }
-        cartas.add(selected);
+    public void addToTable(Card umaCarta){
+        //if (selected == null){
+        //    return;
+        //}
+        cartas.add(umaCarta);
         selected = null;
-        GameEvent gameEvent = new GameEvent(GameEvent.Target.DECK,GameEvent.Action.ADDSEL,"");
+        GameEvent gameEvent = new GameEvent(GameEvent.Target.TABLE,GameEvent.Action.ADDTOTABLE,"");
         setChanged();
         notifyObservers(gameEvent);
     }

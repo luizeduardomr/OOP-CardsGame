@@ -21,13 +21,18 @@ public class TableView extends HBox implements CardObserver, Observer {
         selectedCard = null;
 
         cDeck = null;
+        table=null;
         if (jogador == 1) {
             cDeck = Game.getInstance().getDeckJ1();
+            table = Game.getInstance().getTableJ1();
         } else {
             cDeck = Game.getInstance().getDeckJ2();
+            table = Game.getInstance().getTableJ2();
         }
         cDeck.addObserver(this);
+        table.addObserver(this);
 
+        //se mudar de cdeck para table caga tudo
         for (Card card : cDeck.getCards()) {
             CardView cv = new CardView(card);
             cv.setCardObserver(this);
@@ -70,10 +75,10 @@ public class TableView extends HBox implements CardObserver, Observer {
             return;
         }
         GameEvent ge = (GameEvent) arg;
-        if (ge.getTarget() != GameEvent.Target.DECK) {
+        if (ge.getTarget() != GameEvent.Target.TABLE) {
             return;
         }
-        if (ge.getAction() == GameEvent.Action.ADDSEL) {
+        if (ge.getAction() == GameEvent.Action.ADDTOTABLE) {
             addSel();
         }
     }

@@ -8,6 +8,7 @@ public class Game extends Observable{
     private static Game game = new Game();
     private int ptsJ1,ptsJ2;
     private CardDeck deckJ1,deckJ2;
+    private Table tableJ1, tableJ2;
     private int player;
     private int jogadas;
     
@@ -20,6 +21,8 @@ public class Game extends Observable{
         ptsJ2 = 0;
         deckJ1 = new CardDeck(1);
         deckJ2 = new CardDeck(2);
+        tableJ1 = new Table(1);
+        tableJ2 = new Table(2);
         player = 1;
         jogadas = CardDeck.NCARDS;
     }
@@ -46,6 +49,10 @@ public class Game extends Observable{
     public CardDeck getDeckJ2(){
         return(deckJ2);
     }
+
+    public Table getTableJ1() {return tableJ1;}
+
+    public Table getTableJ2() {return tableJ2;}
     
     public void play(CardDeck deckAcionado){
         GameEvent gameEvent = null;
