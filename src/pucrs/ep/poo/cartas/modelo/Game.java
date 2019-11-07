@@ -58,10 +58,7 @@ public class Game extends Observable{
         GameEvent gameEvent = null;
 
         if (player == 3){
-                gameEvent = new GameEvent(GameEvent.Target.GWIN,GameEvent.Action.MUSTCLEAN,"");
-                setChanged();
-                notifyObservers((Object)gameEvent);
-                return;
+                player = 1;
         }        
         if (deckAcionado == deckJ1){
             if (player != 1){
@@ -69,8 +66,13 @@ public class Game extends Observable{
                 setChanged();
                 notifyObservers((Object)gameEvent);
             }else{
-                // Vira a carta
-                deckJ1.getSelectedCard().turn();
+                //Adiona carta na mesa
+                tableJ1.addToTable(deckJ1.getSelectedCard());
+                //Remove a carta selecionada
+                this.removeSelected();
+                //Manda as mudanças
+                setChanged();
+                notifyObservers((Object)gameEvent);
                 // Proximo jogador
                 nextPlayer();
             }
@@ -80,14 +82,11 @@ public class Game extends Observable{
                 setChanged();
                 notifyObservers((Object)gameEvent);
             }else{
-                // Vira a carta
-                deckJ2.getSelectedCard().turn();
-                // Verifica quem ganhou a rodada
-                if (deckJ1.getSelectedCard().getValue() > deckJ2.getSelectedCard().getValue()){
-                    ptsJ1++;
-                }else if (deckJ1.getSelectedCard().getValue() < deckJ2.getSelectedCard().getValue()){
-                    ptsJ2++;
-                }
+                //Adiona carta na mesa
+                tableJ2.addToTable(deckJ2.getSelectedCard());
+                //Remove a carta selecionada
+                this.removeSelected();
+                //Manda as mudanças
                 setChanged();
                 notifyObservers((Object)gameEvent);
                 // Próximo jogador
@@ -99,19 +98,7 @@ public class Game extends Observable{
     // Acionada pelo botao de limpar    
     public void removeSelected(){
         GameEvent gameEvent = null;
-        
-        if (player != 3){
-            return;
-        }
-        jogadas--;
-        if (jogadas == 0){
-            gameEvent = new GameEvent(GameEvent.Target.GWIN,GameEvent.Action.ENDGAME,"");
-            setChanged();
-            notifyObservers((Object)gameEvent);
-            //return;
-        }
         deckJ1.removeSel();
         deckJ2.removeSel();
-        nextPlayer();
     }
 }

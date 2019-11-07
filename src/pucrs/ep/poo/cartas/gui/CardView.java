@@ -20,6 +20,7 @@ public class CardView extends Button implements Observer{
         this.setOnAction(e -> {
             if (observer != null){
                 observer.cardSelected(thisCard);
+
             }
         });
     }

@@ -25,14 +25,12 @@ public class Table extends Observable{
     }
 
     public void addToTable(Card umaCarta){
-        //if (selected == null){
-        //    return;
-        //}
         cartas.add(umaCarta);
-        selected = null;
+        selected = umaCarta;
         GameEvent gameEvent = new GameEvent(GameEvent.Target.TABLE,GameEvent.Action.ADDTOTABLE,"");
         setChanged();
         notifyObservers(gameEvent);
+        selected = null;
     }
 
     public void removeSel(){

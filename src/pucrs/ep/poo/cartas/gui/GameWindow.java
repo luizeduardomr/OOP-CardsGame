@@ -50,13 +50,7 @@ public class GameWindow extends Application implements Observer {
 
         //Cria o botão
         Button butClean = new Button("Clean");
-        butClean.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent e) {
-                Game.getInstance().removeSelected();
-            }
-        });
-
+        butClean.setOnAction(e -> Game.getInstance().removeSelected());
         // Mão Jogador 1
         GridPane grid1 = new GridPane();
         grid1.setAlignment(Pos.CENTER);

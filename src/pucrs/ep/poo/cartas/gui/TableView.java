@@ -51,10 +51,11 @@ public class TableView extends HBox implements CardObserver, Observer {
     }
 
     private void addSel() {
-        List cards = getChildren();
+        List cards = table.getCards();
+        selectedCard = table.getSelectedCard();
+        CardView cv = new CardView(selectedCard);
         for (int i = 0; i < cards.size(); i++) {
-            CardView cv = (CardView) cards.get(i);
-            if (cv.getCard() == selectedCard) {
+            if (cards.get(i) == selectedCard) {
                 getChildren().add(cv);
                 selectedCard = null;
             }
@@ -74,6 +75,7 @@ public class TableView extends HBox implements CardObserver, Observer {
 
     @Override
     public void update(Observable o, Object arg) {
+
         if (arg == null) {
             return;
         }
