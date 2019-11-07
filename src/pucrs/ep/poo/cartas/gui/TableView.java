@@ -33,11 +33,14 @@ public class TableView extends HBox implements CardObserver, Observer {
         table.addObserver(this);
 
         //se mudar de cdeck para table caga tudo
+        /*
         for (Card card : cDeck.getCards()) {
             CardView cv = new CardView(card);
             cv.setCardObserver(this);
             this.getChildren().add(cv);
         }
+
+         */
     }
 
     @Override
