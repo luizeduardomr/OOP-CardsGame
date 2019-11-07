@@ -12,12 +12,10 @@ public class CardView extends Button implements Observer{
     private CardObserver observer;
     
     public CardView(Card aCard){
-        super("",ImageFactory.getInstance().createImage("imgBck"));
-        //super("",ImageFactory.getInstance().createImage(card.getImageId()));
         card = aCard;
         card.addObserver(this);
         thisCard = this;
-        card.flip();
+        this.setCorrectImage();
 
         this.setOnAction(e -> {
             if (observer != null){
@@ -25,17 +23,14 @@ public class CardView extends Button implements Observer{
             }
         });
     }
-    
+
+    private void setCorrectImage() {
+        this.setGraphic(ImageFactory.getInstance().createImage(card.getImageId()));
+    }
+
     @Override
     public void update(Observable o,Object args){
-
-        if (card.isFacedUp()){
             this.setGraphic(ImageFactory.getInstance().createImage(card.getImageId()));
-        }
-        else{
-            //this.setGraphic(ImageFactory.getInstance().createImage("imgBck"));
-            this.setGraphic(ImageFactory.getInstance().createImage(card.getImageId()));
-        }
     }
     
     public void setCardObserver(CardObserver obs){

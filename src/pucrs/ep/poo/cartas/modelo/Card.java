@@ -8,13 +8,13 @@ public class Card extends Observable{
     private String id;
     private String imageId;
     private int value;
-    private boolean faceUp;
+    private boolean turned;
     
     public Card(String anId,String anImageId,int val){
         id = anId;
         imageId = anImageId;
         value = val;
-        faceUp = true;
+        turned = false;
     }
     
     public String getId(){
@@ -28,20 +28,22 @@ public class Card extends Observable{
     public int getValue(){
         return(value);
     }
-    
-    public boolean isFacedUp(){
-        return(faceUp);
+
+    public boolean isTurned(){
+        return(turned);
     }
-    
-    public void flip(){
-        if (faceUp == true){
-            faceUp = false;
+
+
+    public void turn(){
+        if(turned == true){
+            turned = false;
         }else{
-            faceUp = true;
+            turned = true;
         }
         setChanged();
         notifyObservers();
     }
+
 }
         
 

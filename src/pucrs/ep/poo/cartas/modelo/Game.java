@@ -11,7 +11,7 @@ public class Game extends Observable{
     private Table tableJ1, tableJ2;
     private int player;
     private int jogadas;
-    
+
     public static Game getInstance(){
         return(game);
     }
@@ -70,7 +70,7 @@ public class Game extends Observable{
                 notifyObservers((Object)gameEvent);
             }else{
                 // Vira a carta
-                deckJ1.getSelectedCard().flip();
+                deckJ1.getSelectedCard().turn();
                 // Proximo jogador
                 nextPlayer();
             }
@@ -81,7 +81,7 @@ public class Game extends Observable{
                 notifyObservers((Object)gameEvent);
             }else{
                 // Vira a carta
-                deckJ2.getSelectedCard().flip();
+                deckJ2.getSelectedCard().turn();
                 // Verifica quem ganhou a rodada
                 if (deckJ1.getSelectedCard().getValue() > deckJ2.getSelectedCard().getValue()){
                     ptsJ1++;
