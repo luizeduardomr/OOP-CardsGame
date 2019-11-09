@@ -18,17 +18,31 @@ public class ImageFactory{
     
     private String id2File(String imgId){
         switch(imgId){
+            //terrenos azuis
             case "img1" : return("file:./images/Um.jpg");
+
+            //criaturas azuis
             case "aetherimg" : return("file:./images/aether.jpg");
             case "aberrantimg" : return("file:./images/aberrant.jpg");
             case "aeronautimg" : return("file:./images/aeronaut.jpg");
-            case "img5" : return("file:./images/Cinco.jpg");
+
+            //magicas azuis
+            case "aerialimg" : return("file:./images/aerial.jpg");
+
+            //terrenos vermelhos
             case "img6" : return("file:./images/Seis.jpg");
-            case "img7" : return("file:./images/Sete.jpg");
-            case "img8" : return("file:./images/Oito.jpg");
-            case "img9" : return("file:./images/Nove.jpg");
-            case "img10" : return("file:./images/Dez.jpg");
+
+            //criatureas vermelhas
+            case "anabaimg" : return("file:./images/anaba.jpg");
+            case "afflictedimg" : return("file:./images/afflicted.jpg");
+            case "ashenimg" : return("file:./images/ashen.jpg");
+
+            //magicas vermelhas
+            case "agilityimg" : return("file:./images/agility.jpg");
+
+            //legacy
             case "imgBck" : return("file:./images/Back.png");
+
             default: throw new IllegalArgumentException("Invalid image Id");
         }
     }

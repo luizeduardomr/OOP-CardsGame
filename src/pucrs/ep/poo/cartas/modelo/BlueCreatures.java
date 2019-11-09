@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class BlueCreaturesDeck {
+public class BlueCreatures {
 
     private List<CreatureCard> creatures;
 
-    public BlueCreaturesDeck() {
+    public BlueCreatures() {
         this.creatures = new ArrayList<>();
         addBlueCreatures();
     }

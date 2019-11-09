@@ -1,13 +1,9 @@
 package pucrs.ep.poo.cartas.modelo;
 
-import pucrs.ep.poo.cartas.gui.GameEvent;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Random;
-
-import pucrs.ep.poo.cartas.gui.GameEvent;
 
 public class RealDeck extends Observable {
 
@@ -33,19 +29,17 @@ public class RealDeck extends Observable {
             }
 
             //jogador 1 creatures - cartas de 2 a 4 de forma aleatória
-            BlueCreaturesDeck criaturasAzuis = new BlueCreaturesDeck();
+            BlueCreatures criaturasAzuis = new BlueCreatures();
             for (int i = 0; i < quantityOfCreatures; i++) {
                 Card criatura = criaturasAzuis.pickRandomCreature();
-                //int n = r.nextInt(3) + 2;
-                //Card c = new Card("C" + n, "img" + n, n);
                 cartas.add(criatura);
             }
 
-            //jogador 1 mágicas - só recebe carta 5
+            //jogador 1 feitiços
+            BlueSorceries magiasAzuis = new BlueSorceries();
             for (int i = 0; i < getQuantityOfMagics; i++) {
-                //int n = r.nextInt(1) + 5;
-                Card c = new Card("C5", "img5", 5);
-                cartas.add(c);
+                Card magia = magiasAzuis.pickRandomSorcery();
+                cartas.add(magia);
             }
         }
 
@@ -58,17 +52,17 @@ public class RealDeck extends Observable {
             }
 
             //jogador 2 creatures - cartas de 7 a 9 de forma aleatória
+            RedCreatures criaturasVermelhas = new RedCreatures();
             for (int i = 0; i < quantityOfCreatures; i++) {
-                int n = r.nextInt(3) + 7;
-                Card c = new Card("C" + n, "img" + n, n);
-                cartas.add(c);
+                Card criatura = criaturasVermelhas.pickRandomCreature();
+                cartas.add(criatura);
             }
 
-            //jogador 2 mágicas - só recebe carta 10
+            //jogador 2 feitiços
+            RedSorceries magiasVermelhas = new RedSorceries();
             for (int i = 0; i < getQuantityOfMagics; i++) {
-                int n = r.nextInt(1) + 10;
-                Card c = new Card("C" + n, "img" + n, n);
-                cartas.add(c);
+                Card magia = magiasVermelhas.pickRandomSorcery();
+                cartas.add(magia);
             }
         }
     }
