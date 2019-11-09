@@ -28,15 +28,17 @@ public class RealDeck extends Observable {
         if (jogador == 1) {
             //jogador 1 manaSources - só recebe a carta 1
             for (int i = 0; i < quantityOfManaSource; i++) {
-                Card c = new Card("C1", "img1", 1);
+                Card c = new TerrainCard("C1", "img1", 1, TerrainCard.Colour.BLUE);
                 cartas.add(c);
             }
 
             //jogador 1 creatures - cartas de 2 a 4 de forma aleatória
+            BlueCreaturesDeck criaturasAzuis = new BlueCreaturesDeck();
             for (int i = 0; i < quantityOfCreatures; i++) {
-                int n = r.nextInt(3) + 2;
-                Card c = new Card("C" + n, "img" + n, n);
-                cartas.add(c);
+                Card criatura = criaturasAzuis.pickRandomCreature();
+                //int n = r.nextInt(3) + 2;
+                //Card c = new Card("C" + n, "img" + n, n);
+                cartas.add(criatura);
             }
 
             //jogador 1 mágicas - só recebe carta 5

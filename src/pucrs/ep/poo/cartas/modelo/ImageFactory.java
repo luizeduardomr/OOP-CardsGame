@@ -19,9 +19,9 @@ public class ImageFactory{
     private String id2File(String imgId){
         switch(imgId){
             case "img1" : return("file:./images/Um.jpg");
-            case "img2" : return("file:./images/Dois.jpg");
-            case "img3" : return("file:./images/Tres.jpg");
-            case "img4" : return("file:./images/Quatro.jpg");
+            case "aetherimg" : return("file:./images/aether.jpg");
+            case "aberrantimg" : return("file:./images/aberrant.jpg");
+            case "aeronautimg" : return("file:./images/aeronaut.jpg");
             case "img5" : return("file:./images/Cinco.jpg");
             case "img6" : return("file:./images/Seis.jpg");
             case "img7" : return("file:./images/Sete.jpg");
