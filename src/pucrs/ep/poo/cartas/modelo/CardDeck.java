@@ -6,21 +6,29 @@ import java.util.*;
 
 
 // Esta classe tem de ser um container de cartas observavel ...
-public class CardDeck extends Observable{
-    public static final int NCARDS = 4;
+public class CardDeck extends Observable {
+    public static final int NCARDS = 12;
     private List<Card> cartas;
     private Card selected;
-    
-    public CardDeck(int jogador){
-       cartas = new ArrayList<Card>(NCARDS);
-       selected = null;
-       Random r = new Random();
 
+    public CardDeck(int jogador) {
+        cartas = new ArrayList<Card>(NCARDS);
+        selected = null;
+        Random r = new Random();
+        RealDeck baralho = new RealDeck(jogador);
+
+        for (int i = 0; i < NCARDS; i++) {
+            Card c = baralho.buyACard();
+            cartas.add(c);
+        }
+
+       /*
        //jogador 1 só recebe as cartas de 1 até 5
        if (jogador==1) {
            for (int i = 0; i < NCARDS; i++) {
-               int n = r.nextInt(5) + 1;
-               Card c = new Card("C" + n, "img" + n, n);
+               //int n = r.nextInt(5) + 1;
+               //Card c = new Card("C" + n, "img" + n, n);
+               Card c =
                //c.flip();
                cartas.add(c);
            }
@@ -35,33 +43,35 @@ public class CardDeck extends Observable{
                 cartas.add(c);
             }
         }
-    }
-        
-    public List<Card> getCards(){
-        return(cartas);
+
+        */
     }
 
-    public int getNumberOfCards(){
-        return(cartas.size());
+    public List<Card> getCards() {
+        return (cartas);
     }
-    
-    public void removeSel(){
-        if (selected == null){
+
+    public int getNumberOfCards() {
+        return (cartas.size());
+    }
+
+    public void removeSel() {
+        if (selected == null) {
             return;
         }
         cartas.remove(selected);
         selected = null;
-        GameEvent gameEvent = new GameEvent(GameEvent.Target.DECK,GameEvent.Action.REMOVESEL,"");
+        GameEvent gameEvent = new GameEvent(GameEvent.Target.DECK, GameEvent.Action.REMOVESEL, "");
         setChanged();
         notifyObservers(gameEvent);
-    }    
-        
-    public void setSelectedCard(Card card){
+    }
+
+    public void setSelectedCard(Card card) {
         selected = card;
     }
-    
-    public Card getSelectedCard(){
-        return(selected);
+
+    public Card getSelectedCard() {
+        return (selected);
     }
 }
 
