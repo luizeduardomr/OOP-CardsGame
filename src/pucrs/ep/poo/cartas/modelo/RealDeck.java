@@ -24,7 +24,7 @@ public class RealDeck extends Observable {
         if (jogador == 1) {
             //jogador 1 manaSources - só recebe a carta 1
             for (int i = 0; i < quantityOfManaSource; i++) {
-                Card c = new TerrainCard("C1", "img1", 1, TerrainCard.Colour.BLUE);
+                Card c = new TerrainCard("island", "islandimg", 1, TerrainCard.Colour.BLUE);
                 cartas.add(c);
             }
 
@@ -47,7 +47,7 @@ public class RealDeck extends Observable {
         else if (jogador == 2) {
             //jogador 2 manaSources - só recebe a carta 6
             for (int i = 0; i < quantityOfManaSource; i++) {
-                Card c = new Card("C6", "img6", 6);
+                Card c = new TerrainCard("mountain", "mountainimg", 6, TerrainCard.Colour.RED);
                 cartas.add(c);
             }
 

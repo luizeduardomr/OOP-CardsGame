@@ -19,7 +19,7 @@ public class ImageFactory{
     private String id2File(String imgId){
         switch(imgId){
             //terrenos azuis
-            case "img1" : return("file:./images/Um.jpg");
+            case "islandimg" : return("file:./images/island.jpg");
 
             //criaturas azuis
             case "aetherimg" : return("file:./images/aether.jpg");
@@ -30,7 +30,7 @@ public class ImageFactory{
             case "aerialimg" : return("file:./images/aerial.jpg");
 
             //terrenos vermelhos
-            case "img6" : return("file:./images/Seis.jpg");
+            case "mountainimg" : return("file:./images/mountain.jpg");
 
             //criatureas vermelhas
             case "anabaimg" : return("file:./images/anaba.jpg");
