@@ -18,16 +18,16 @@ public class ImageFactory{
     
     private String id2File(String imgId){
         switch(imgId){
-            case "img1" : return("file:./images/Um.png");
-            case "img2" : return("file:./images/Dois.png");
-            case "img3" : return("file:./images/Tres.png");
-            case "img4" : return("file:./images/Quatro.png");
-            case "img5" : return("file:./images/Cinco.png");
-            case "img6" : return("file:./images/Seis.png");
-            case "img7" : return("file:./images/Sete.png");
-            case "img8" : return("file:./images/Oito.png");
-            case "img9" : return("file:./images/Nove.png");
-            case "img10" : return("file:./images/Dez.png");
+            case "img1" : return("file:./images/Um.jpg");
+            case "img2" : return("file:./images/Dois.jpg");
+            case "img3" : return("file:./images/Tres.jpg");
+            case "img4" : return("file:./images/Quatro.jpg");
+            case "img5" : return("file:./images/Cinco.jpg");
+            case "img6" : return("file:./images/Seis.jpg");
+            case "img7" : return("file:./images/Sete.jpg");
+            case "img8" : return("file:./images/Oito.jpg");
+            case "img9" : return("file:./images/Nove.jpg");
+            case "img10" : return("file:./images/Dez.jpg");
             case "imgBck" : return("file:./images/Back.png");
             default: throw new IllegalArgumentException("Invalid image Id");
         }

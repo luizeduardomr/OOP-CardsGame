@@ -15,9 +15,9 @@ public class RealDeck extends Observable {
     //public int quantityOfManaSource = NCARDS/2;
     //public int quantityOfCreatures = NCARDS/4;
     //public int getQuantityOfMagics = NCARDS/4;
-    public int quantityOfManaSource = 12;
-    public int quantityOfCreatures = 24;
-    public int getQuantityOfMagics = 24;
+    public int quantityOfManaSource = 30;
+    public int quantityOfCreatures = 20;
+    public int getQuantityOfMagics = 10;
     private List<Card> cartas;
 
     public RealDeck(int jogador) {

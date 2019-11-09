@@ -60,7 +60,7 @@ public class GameWindow extends Application implements Observer {
 
         DeckView deckJ1 = new DeckView(1);
         ScrollPane sd1 = new ScrollPane();
-        sd1.setPrefSize(1500, 395);
+        sd1.setPrefSize(1500, 470);
         sd1.setContent(deckJ1);
         grid1.add(sd1, 0, 0);
 
@@ -76,7 +76,7 @@ public class GameWindow extends Application implements Observer {
 
         DeckView deckJ2 = new DeckView(2);
         ScrollPane sd2 = new ScrollPane();
-        sd2.setPrefSize(1500, 395);
+        sd2.setPrefSize(1500, 470);
         sd2.setContent(deckJ2);
         grid2.add(sd2, 0, 0);
 
@@ -92,7 +92,7 @@ public class GameWindow extends Application implements Observer {
 
         TableView tableJ1 = new TableView(1);
         ScrollPane sd3 = new ScrollPane();
-        sd3.setPrefSize(1500, 395);
+        sd3.setPrefSize(1500, 470);
         sd3.setContent(tableJ1);
         grid3.add(sd3, 0, 0);
 
@@ -105,7 +105,7 @@ public class GameWindow extends Application implements Observer {
 
         TableView tableJ2 = new TableView(2);
         ScrollPane sd4 = new ScrollPane();
-        sd4.setPrefSize(1500, 395);
+        sd4.setPrefSize(1500, 470);
         sd4.setContent(tableJ2);
         grid4.add(sd4, 0, 0);
 
