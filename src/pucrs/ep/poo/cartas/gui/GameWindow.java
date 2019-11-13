@@ -47,10 +47,7 @@ public class GameWindow extends Application implements Observer {
 
         //Cria o objeto placar
         PlacarView placar = new PlacarView();
-
-        //Cria o botão
-        Button butClean = new Button("Clean");
-        butClean.setOnAction(e -> Game.getInstance().removeSelected());
+        PlacarView placar2 = new PlacarView();
 
         //Cria botões de passar turno
         Button butNextPlayer1 = new Button("Passar turno");
@@ -87,7 +84,7 @@ public class GameWindow extends Application implements Observer {
         sd2.setContent(deckJ2);
         grid2.add(sd2, 0, 0);
 
-        grid2.add(placar, 0, 1);
+        grid2.add(placar2, 0, 1);
         grid2.add(butNextPlayer2, 1, 1);
 
         // Mesa Jogador 1
