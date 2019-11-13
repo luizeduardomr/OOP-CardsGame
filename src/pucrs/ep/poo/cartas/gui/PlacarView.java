@@ -22,8 +22,8 @@ public class PlacarView extends GridPane implements Observer{
         ptsJ1 = new TextField();
         ptsJ2 = new TextField();
       
-        ptsJ1.setText(""+Game.getInstance().getPtsJ1());
-        ptsJ2.setText(""+Game.getInstance().getPtsJ2());
+        ptsJ1.setText(""+Game.getInstance().getLifeJ1());
+        ptsJ2.setText(""+Game.getInstance().getLifeJ2());
 
         this.add(new Label("Jogador 1:"),0,0);
         this.add(ptsJ1,1,0);
@@ -33,8 +33,8 @@ public class PlacarView extends GridPane implements Observer{
     
     @Override
     public void update(Observable o,Object arg){
-        ptsJ1.setText(""+Game.getInstance().getPtsJ1());
-        ptsJ2.setText(""+Game.getInstance().getPtsJ2());
+        ptsJ1.setText(""+Game.getInstance().getLifeJ1());
+        ptsJ2.setText(""+Game.getInstance().getLifeJ2());
     }    
 }
 

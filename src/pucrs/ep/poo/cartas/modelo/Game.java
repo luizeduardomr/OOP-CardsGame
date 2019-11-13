@@ -6,9 +6,10 @@ import java.util.*;
 
 public class Game extends Observable{
     private static Game game = new Game();
-    private int ptsJ1,ptsJ2;
+    private int lifeJ1, lifeJ2;
     private CardDeck deckJ1,deckJ2;
     private Table tableJ1, tableJ2;
+    private int manaReserveJ1, manaReserveJ2;
     private int player;
     private int jogadas;
 
@@ -17,8 +18,10 @@ public class Game extends Observable{
     }
     
     private Game(){
-        ptsJ1 = 0;
-        ptsJ2 = 0;
+        lifeJ1 = 20;
+        lifeJ2 = 20;
+        manaReserveJ1=0;
+        manaReserveJ2=0;
         deckJ1 = new CardDeck(1);
         deckJ2 = new CardDeck(2);
         tableJ1 = new Table(1);
@@ -33,13 +36,29 @@ public class Game extends Observable{
             player = 1;
         }
     }
-        
-    public int getPtsJ1(){
-        return(ptsJ1);
+
+    public int getManaReserveJ1() {
+        return manaReserveJ1;
     }
 
-    public int getPtsJ2(){
-        return(ptsJ2);
+    public void setManaReserveJ1(int manaReserveJ1) {
+        this.manaReserveJ1 = manaReserveJ1;
+    }
+
+    public int getManaReserveJ2() {
+        return manaReserveJ2;
+    }
+
+    public void setManaReserveJ2(int manaReserveJ2) {
+        this.manaReserveJ2 = manaReserveJ2;
+    }
+
+    public int getLifeJ1(){
+        return(lifeJ1);
+    }
+
+    public int getLifeJ2(){
+        return(lifeJ2);
     }
     
     public CardDeck getDeckJ1(){
