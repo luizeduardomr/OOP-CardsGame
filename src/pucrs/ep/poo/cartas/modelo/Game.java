@@ -12,6 +12,7 @@ public class Game extends Observable {
     private int manaReserveJ1, manaReserveJ2;
     private int player;
     private int jogadas;
+    private boolean terrenoBaixado;
 
     public static Game getInstance() {
         return (game);
@@ -28,6 +29,7 @@ public class Game extends Observable {
         tableJ2 = new Table(2);
         player = 1;
         jogadas = CardDeck.NCARDS;
+        terrenoBaixado = false;
     }
 
     public void nextPlayer() {
@@ -35,6 +37,7 @@ public class Game extends Observable {
         if (player == 4) {
             player = 1;
         }
+        terrenoBaixado = false;
     }
 
     public int getManaReserveJ1() {
@@ -92,13 +95,10 @@ public class Game extends Observable {
                 //Adiciona carta na mesa
                 addCardToTable(deckJ1.getSelectedCard(), player);
 
-                //Remove a carta selecionada
-                this.removeSelected();
                 //Manda as mudanças
                 setChanged();
                 notifyObservers((Object) gameEvent);
-                // Proximo jogador
-                //nextPlayer();
+
             }
         } else if (deckAcionado == deckJ2) {
             if (player != 2) {
@@ -109,32 +109,52 @@ public class Game extends Observable {
                 //Adiciona carta na mesa
                 addCardToTable(deckJ2.getSelectedCard(), player);
 
-                //Remove a carta selecionada
-                this.removeSelected();
-
                 //Manda as mudanças
                 setChanged();
                 notifyObservers((Object) gameEvent);
-
-                // Próximo jogador
-                //nextPlayer();
             }
         }
     }
 
     public void addCardToTable(Card carta, int jogador) {
-        //GameEvent gameEvent = new GameEvent(GameEvent.Target.GWIN,GameEvent.Action.INVPLAY,"2");
+
         if (jogador == 1) {
 
-            if (carta instanceof TerrainCard) manaReserveJ1++;
+            if (carta instanceof TerrainCard && !terrenoBaixado) {
+                terrenoBaixado = true;
+                manaReserveJ1++;
+            } else {
+                GameEvent gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.INVCARD, "");
+                setChanged();
+                notifyObservers((Object) gameEvent);
+                return;
+            }
+
             tableJ1.addToTable(carta);
-            System.out.println(manaReserveJ1);
+
+            //Remove a carta selecionada
+            this.removeSelected();
+
         }
 
         if (jogador == 2) {
-            if (carta instanceof TerrainCard) manaReserveJ2++;
+
+            if (carta instanceof TerrainCard && !terrenoBaixado) {
+                terrenoBaixado = true;
+                manaReserveJ2++;
+            } else {
+                GameEvent gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.INVCARD, "");
+                setChanged();
+                notifyObservers((Object) gameEvent);
+                return;
+            }
+
+
             tableJ2.addToTable(carta);
-            System.out.println(manaReserveJ2);
+
+            //Remove a carta selecionada
+            this.removeSelected();
+
         }
 
 

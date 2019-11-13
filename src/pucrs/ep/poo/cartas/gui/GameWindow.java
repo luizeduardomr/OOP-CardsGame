@@ -164,6 +164,13 @@ public class GameWindow extends Application implements Observer {
                     alert.setContentText("Fim de Jogo !!");
                     alert.showAndWait();
                     break;
+                case INVCARD:
+                    alert = new Alert(AlertType.WARNING);
+                    alert.setTitle("Atenção !!");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Carta inválida, meu querido!!");
+                    alert.showAndWait();
+                    break;
             }
         }
     }

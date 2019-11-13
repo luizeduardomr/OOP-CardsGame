@@ -2,7 +2,7 @@ package pucrs.ep.poo.cartas.gui;
 
 public class GameEvent{
     public enum Target {DECK,GWIN,TABLE};
-    public enum Action {INVPLAY,MUSTCLEAN,ENDGAME,REMOVESEL,ADDTOTABLE};
+    public enum Action {INVPLAY,MUSTCLEAN,ENDGAME,REMOVESEL,ADDTOTABLE, INVCARD};
     
     private Target target;
     private Action action;
