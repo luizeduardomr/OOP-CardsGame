@@ -85,8 +85,9 @@ public class Game extends Observable{
                 setChanged();
                 notifyObservers((Object)gameEvent);
             }else{
-                //Adiona carta na mesa
-                tableJ1.addToTable(deckJ1.getSelectedCard());
+                //Adiciona carta na mesa
+                addCardToTable(deckJ1.getSelectedCard(), player);
+
                 //Remove a carta selecionada
                 this.removeSelected();
                 //Manda as mudanças
@@ -101,17 +102,26 @@ public class Game extends Observable{
                 setChanged();
                 notifyObservers((Object)gameEvent);
             }else{
-                //Adiona carta na mesa
-                tableJ2.addToTable(deckJ2.getSelectedCard());
+                //Adiciona carta na mesa
+                addCardToTable(deckJ2.getSelectedCard(), player);
+
                 //Remove a carta selecionada
                 this.removeSelected();
+
                 //Manda as mudanças
                 setChanged();
                 notifyObservers((Object)gameEvent);
+
                 // Próximo jogador
                 nextPlayer();
             }
         }          
+    }
+
+    public void addCardToTable(Card carta, int jogador){
+        //GameEvent gameEvent = new GameEvent(GameEvent.Target.GWIN,GameEvent.Action.INVPLAY,"2");
+        if (jogador==1) tableJ1.addToTable(carta);
+        if (jogador==2) tableJ2.addToTable(carta);
     }
 
     // Acionada pelo botao de limpar    
