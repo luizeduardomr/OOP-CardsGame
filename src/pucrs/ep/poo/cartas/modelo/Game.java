@@ -30,7 +30,7 @@ public class Game extends Observable {
         jogadas = CardDeck.NCARDS;
     }
 
-    private void nextPlayer() {
+    public void nextPlayer() {
         player++;
         if (player == 4) {
             player = 1;
@@ -98,11 +98,11 @@ public class Game extends Observable {
                 setChanged();
                 notifyObservers((Object) gameEvent);
                 // Proximo jogador
-                nextPlayer();
+                //nextPlayer();
             }
         } else if (deckAcionado == deckJ2) {
             if (player != 2) {
-                gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.INVPLAY, "2");
+                gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.INVPLAY, "1");
                 setChanged();
                 notifyObservers((Object) gameEvent);
             } else {
@@ -117,7 +117,7 @@ public class Game extends Observable {
                 notifyObservers((Object) gameEvent);
 
                 // Próximo jogador
-                nextPlayer();
+                //nextPlayer();
             }
         }
     }

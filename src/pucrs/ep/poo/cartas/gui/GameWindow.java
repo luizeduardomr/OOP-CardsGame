@@ -28,7 +28,7 @@ public class GameWindow extends Application implements Observer {
     public void start(Stage primaryStage) {
         Game.getInstance().addObserver(this);
 
-        primaryStage.setTitle("Batalha de Cartas");
+        primaryStage.setTitle("Magic dus guri");
 
         Group root = new Group();
 
@@ -51,6 +51,13 @@ public class GameWindow extends Application implements Observer {
         //Cria o botão
         Button butClean = new Button("Clean");
         butClean.setOnAction(e -> Game.getInstance().removeSelected());
+
+        //Cria botões de passar turno
+        Button butNextPlayer1 = new Button("Passar turno");
+        butNextPlayer1.setOnAction(e -> Game.getInstance().nextPlayer());
+        Button butNextPlayer2 = new Button("Passar turno");
+        butNextPlayer2.setOnAction(e -> Game.getInstance().nextPlayer());
+
         // Mão Jogador 1
         GridPane grid1 = new GridPane();
         grid1.setAlignment(Pos.CENTER);
@@ -65,7 +72,7 @@ public class GameWindow extends Application implements Observer {
         grid1.add(sd1, 0, 0);
 
         grid1.add(placar, 0, 1);
-        grid1.add(butClean, 1, 1);
+        grid1.add(butNextPlayer1, 1, 1);
 
         //Mão Jogador 2
         GridPane grid2 = new GridPane();
@@ -81,7 +88,7 @@ public class GameWindow extends Application implements Observer {
         grid2.add(sd2, 0, 0);
 
         grid2.add(placar, 0, 1);
-        grid2.add(butClean, 1, 1);
+        grid2.add(butNextPlayer2, 1, 1);
 
         // Mesa Jogador 1
         GridPane grid3 = new GridPane();
