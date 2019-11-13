@@ -123,7 +123,12 @@ public class Game extends Observable {
             if (carta instanceof TerrainCard && !terrenoBaixado) {
                 terrenoBaixado = true;
                 manaReserveJ1++;
-            } else {
+            } else if (carta instanceof CreatureCard && manaReserveJ1>=((CreatureCard) carta).getCost()){
+                manaReserveJ1=manaReserveJ1-((CreatureCard) carta).getCost();
+
+            }
+
+            else {
                 GameEvent gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.INVCARD, "");
                 setChanged();
                 notifyObservers((Object) gameEvent);
@@ -142,7 +147,13 @@ public class Game extends Observable {
             if (carta instanceof TerrainCard && !terrenoBaixado) {
                 terrenoBaixado = true;
                 manaReserveJ2++;
-            } else {
+            } else if (carta instanceof CreatureCard && manaReserveJ2>=((CreatureCard) carta).getCost()){
+            manaReserveJ2=manaReserveJ2-((CreatureCard) carta).getCost();
+
+        }
+
+
+            else {
                 GameEvent gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.INVCARD, "");
                 setChanged();
                 notifyObservers((Object) gameEvent);
