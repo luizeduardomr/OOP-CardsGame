@@ -108,9 +108,9 @@ public class Game extends Observable {
                 notifyObservers((Object) gameEvent);
 
                 //resetMana
-                if (manaResetado == false){
+                if (manaResetado == false) {
                     setManaReserveJ1(tableJ1.getNumberOfMana());
-                    manaResetado=true;
+                    manaResetado = true;
                 }
 
                 //Adiciona carta na mesa
@@ -131,9 +131,9 @@ public class Game extends Observable {
                 notifyObservers((Object) gameEvent);
 
                 //resetMana
-                if (manaResetado == false){
+                if (manaResetado == false) {
                     setManaReserveJ2(tableJ2.getNumberOfMana());
-                    manaResetado=true;
+                    manaResetado = true;
                 }
 
                 //Adiciona carta na mesa
@@ -144,19 +144,19 @@ public class Game extends Observable {
         }
     }
 
-    public void buyoneCard (Deck grimorio, int jogador){
+    public void buyoneCard(Deck grimorio, int jogador) {
 
-        if (jogador == 1 && cartaComprada==false) {
+        if (jogador == 1 && cartaComprada == false) {
 
             handJ1.buyOneCard(grimorio);
-            cartaComprada=true;
+            cartaComprada = true;
 
         }
 
-        if (jogador ==2  && cartaComprada==false) {
+        if (jogador == 2 && cartaComprada == false) {
 
             handJ2.buyOneCard(grimorio);
-            cartaComprada=true;
+            cartaComprada = true;
 
         }
 
@@ -169,10 +169,10 @@ public class Game extends Observable {
             if (carta instanceof TerrainCard && !terrenoBaixado) {
                 terrenoBaixado = true;
                 manaReserveJ1++;
-            } else if (carta instanceof CreatureCard && manaReserveJ1>=((CreatureCard) carta).getCost()){
-                manaReserveJ1=manaReserveJ1-((CreatureCard) carta).getCost();
-            } else if (carta instanceof SorceryCard && manaReserveJ1>= ((SorceryCard) carta).getCost()){
-                manaReserveJ1=manaReserveJ1-((SorceryCard) carta).getCost();
+            } else if (carta instanceof CreatureCard && manaReserveJ1 >= ((CreatureCard) carta).getCost()) {
+                manaReserveJ1 = manaReserveJ1 - ((CreatureCard) carta).getCost();
+            } else if (carta instanceof SorceryCard && manaReserveJ1 >= ((SorceryCard) carta).getCost()) {
+                manaReserveJ1 = manaReserveJ1 - ((SorceryCard) carta).getCost();
             } else {
                 GameEvent gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.INVCARD, "");
                 setChanged();
@@ -183,7 +183,7 @@ public class Game extends Observable {
             tableJ1.addToTable(carta);
 
             //Remove a carta selecionada
-            this.removeSelected();
+            this.removeSelected(handJ1);
 
         }
 
@@ -192,9 +192,9 @@ public class Game extends Observable {
             if (carta instanceof TerrainCard && !terrenoBaixado) {
                 terrenoBaixado = true;
                 manaReserveJ2++;
-            } else if (carta instanceof CreatureCard && manaReserveJ2>=((CreatureCard) carta).getCost()){
-            manaReserveJ2=manaReserveJ2-((CreatureCard) carta).getCost();
-            } else if (carta instanceof SorceryCard && manaReserveJ2>= ((SorceryCard) carta).getCost()) {
+            } else if (carta instanceof CreatureCard && manaReserveJ2 >= ((CreatureCard) carta).getCost()) {
+                manaReserveJ2 = manaReserveJ2 - ((CreatureCard) carta).getCost();
+            } else if (carta instanceof SorceryCard && manaReserveJ2 >= ((SorceryCard) carta).getCost()) {
                 manaReserveJ2 = manaReserveJ2 - ((SorceryCard) carta).getCost();
             } else {
                 GameEvent gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.INVCARD, "");
@@ -206,16 +206,15 @@ public class Game extends Observable {
             tableJ2.addToTable(carta);
 
             //Remove a carta selecionada
-            this.removeSelected();
+            this.removeSelected(handJ2);
 
         }
 
     }
 
     // Acionada pelo botao de limpar    
-    public void removeSelected() {
+    public void removeSelected(Hand hand) {
         GameEvent gameEvent = null;
-        handJ1.removeSel();
-        handJ2.removeSel();
-    }
+        hand.removeSel();
+            }
 }

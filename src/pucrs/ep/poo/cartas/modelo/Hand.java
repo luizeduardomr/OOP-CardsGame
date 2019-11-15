@@ -7,7 +7,7 @@ import java.util.*;
 
 // Esta classe tem de ser um container de cartas observavel ...
 public class Hand extends Observable {
-    public static final int NCARDS = 12;
+    public static final int NCARDS = 5;
     private List<Card> cartas;
     private Card selected;
     private Card buyedCard;
@@ -15,6 +15,10 @@ public class Hand extends Observable {
     public Hand(int jogador, Deck grimorio) {
         cartas = new ArrayList<Card>(NCARDS);
         selected = null;
+
+        //essas duas linhas são só para corrigir bug na hora que não comprar cartas
+        BuyCard topoGrimorio = new BuyCard("topo", "imgBck", 0);
+        cartas.add(topoGrimorio);
 
         for (int i = 0; i < NCARDS; i++) {
             Card c = grimorio.buyACard();
