@@ -15,6 +15,7 @@ public class Game extends Observable {
     private int jogadas;
     private boolean terrenoBaixado;
     private boolean cartaComprada;
+    private boolean manaResetado;
 
     public static Game getInstance() {
         return (game);
@@ -35,6 +36,8 @@ public class Game extends Observable {
         jogadas = Hand.NCARDS;
         terrenoBaixado = false;
         cartaComprada = false;
+        manaResetado = false;
+
     }
 
     public void nextPlayer() {
@@ -44,6 +47,7 @@ public class Game extends Observable {
         }
         terrenoBaixado = false;
         cartaComprada = false;
+        manaResetado = false;
     }
 
     public int getManaReserveJ1() {
@@ -103,7 +107,11 @@ public class Game extends Observable {
                 setChanged();
                 notifyObservers((Object) gameEvent);
 
-                //
+                //resetMana
+                if (manaResetado == false){
+                    setManaReserveJ1(tableJ1.getNumberOfMana());
+                    manaResetado=true;
+                }
 
                 //Adiciona carta na mesa
                 addCardToTable(handJ1.getSelectedCard(), player);
@@ -122,7 +130,11 @@ public class Game extends Observable {
                 setChanged();
                 notifyObservers((Object) gameEvent);
 
-                //
+                //resetMana
+                if (manaResetado == false){
+                    setManaReserveJ2(tableJ2.getNumberOfMana());
+                    manaResetado=true;
+                }
 
                 //Adiciona carta na mesa
                 addCardToTable(handJ2.getSelectedCard(), player);
