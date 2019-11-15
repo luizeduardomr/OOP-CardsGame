@@ -8,6 +8,7 @@ public class Game extends Observable {
     private static Game game = new Game();
     private int lifeJ1, lifeJ2;
     private CardDeck deckJ1, deckJ2;
+    private RealDeck grimorioJ1, grimorioJ2;
     private Table tableJ1, tableJ2;
     private int manaReserveJ1, manaReserveJ2;
     private int player;
@@ -23,8 +24,10 @@ public class Game extends Observable {
         lifeJ2 = 20;
         manaReserveJ1 = 0;
         manaReserveJ2 = 0;
-        deckJ1 = new CardDeck(1);
-        deckJ2 = new CardDeck(2);
+        grimorioJ1 = new RealDeck(1);
+        grimorioJ2 = new RealDeck(2);
+        deckJ1 = new CardDeck(1, grimorioJ1);
+        deckJ2 = new CardDeck(2, grimorioJ2);
         tableJ1 = new Table(1);
         tableJ2 = new Table(2);
         player = 1;
@@ -92,6 +95,11 @@ public class Game extends Observable {
                 setChanged();
                 notifyObservers((Object) gameEvent);
             } else {
+                //compra carta
+                deckJ1.buyOneCard(grimorioJ1);
+                setChanged();
+                notifyObservers((Object) gameEvent);
+
                 //Adiciona carta na mesa
                 addCardToTable(deckJ1.getSelectedCard(), player);
 
@@ -106,6 +114,11 @@ public class Game extends Observable {
                 setChanged();
                 notifyObservers((Object) gameEvent);
             } else {
+                //compra carta
+                deckJ2.buyOneCard(grimorioJ2);
+                setChanged();
+                notifyObservers((Object) gameEvent);
+
                 //Adiciona carta na mesa
                 addCardToTable(deckJ2.getSelectedCard(), player);
 

@@ -51,7 +51,15 @@ public class DeckView extends HBox implements CardObserver,Observer{
             }
         }      
     }
-    
+
+    private void addToHand() {
+        List cards = getChildren();
+        CardView cv = new CardView(cDeck.getBuyedCard());
+        cv.setCardObserver(this);
+        cards.add(cv);
+    }
+
+
     @Override
     public void update(Observable o,Object arg){
         if (arg == null){
@@ -63,6 +71,9 @@ public class DeckView extends HBox implements CardObserver,Observer{
         }
         if (ge.getAction() == GameEvent.Action.REMOVESEL){
             removeSel();
+        }
+        if (ge.getAction() == GameEvent.Action.ADDTOHAND) {
+            addToHand();
         }
     }
 }

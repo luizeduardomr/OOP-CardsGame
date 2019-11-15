@@ -10,41 +10,29 @@ public class CardDeck extends Observable {
     public static final int NCARDS = 12;
     private List<Card> cartas;
     private Card selected;
+    private Card buyedCard;
 
-    public CardDeck(int jogador) {
+    public CardDeck(int jogador, RealDeck grimorio) {
         cartas = new ArrayList<Card>(NCARDS);
         selected = null;
-        Random r = new Random();
-        RealDeck baralho = new RealDeck(jogador);
 
         for (int i = 0; i < NCARDS; i++) {
-            Card c = baralho.buyACard();
+            Card c = grimorio.buyACard();
             cartas.add(c);
         }
+    }
 
-       /*
-       //jogador 1 só recebe as cartas de 1 até 5
-       if (jogador==1) {
-           for (int i = 0; i < NCARDS; i++) {
-               //int n = r.nextInt(5) + 1;
-               //Card c = new Card("C" + n, "img" + n, n);
-               Card c =
-               //c.flip();
-               cartas.add(c);
-           }
-       }
+    public void buyOneCard(RealDeck baralho){
+        Card c = baralho.buyACard();
+        cartas.add(c);
+        buyedCard = c;
+        GameEvent gameEvent = new GameEvent(GameEvent.Target.DECK,GameEvent.Action.ADDTOHAND,"");
+        setChanged();
+        notifyObservers(gameEvent);
+    }
 
-       //jogador 2 só recebe as cartas de 6 até 10
-        else if (jogador==2) {
-            for (int i = 0; i < NCARDS; i++) {
-                int n = r.nextInt(5) + 6;
-                Card c = new Card("C" + n, "img" + n, n);
-                //c.flip();
-                cartas.add(c);
-            }
-        }
-
-        */
+    public Card getBuyedCard() {
+        return buyedCard;
     }
 
     public List<Card> getCards() {
