@@ -6,13 +6,13 @@ import java.util.*;
 
 
 // Esta classe tem de ser um container de cartas observavel ...
-public class CardDeck extends Observable {
+public class Hand extends Observable {
     public static final int NCARDS = 12;
     private List<Card> cartas;
     private Card selected;
     private Card buyedCard;
 
-    public CardDeck(int jogador, RealDeck grimorio) {
+    public Hand(int jogador, Deck grimorio) {
         cartas = new ArrayList<Card>(NCARDS);
         selected = null;
 
@@ -22,7 +22,7 @@ public class CardDeck extends Observable {
         }
     }
 
-    public void buyOneCard(RealDeck baralho){
+    public void buyOneCard(Deck baralho){
         Card c = baralho.buyACard();
         cartas.add(c);
         buyedCard = c;

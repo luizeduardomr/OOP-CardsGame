@@ -8,7 +8,7 @@ import pucrs.ep.poo.cartas.modelo.*;
 
 public class TableView extends HBox implements CardObserver, Observer {
     private int jogador;
-    private CardDeck cDeck;
+    private Hand cDeck;
     private Card selectedCard;
     private Table table;
 
@@ -23,10 +23,10 @@ public class TableView extends HBox implements CardObserver, Observer {
         cDeck = null;
         table=null;
         if (jogador == 1) {
-            cDeck = Game.getInstance().getDeckJ1();
+            cDeck = Game.getInstance().getHandJ1();
             table = Game.getInstance().getTableJ1();
         } else {
-            cDeck = Game.getInstance().getDeckJ2();
+            cDeck = Game.getInstance().getHandJ2();
             table = Game.getInstance().getTableJ2();
         }
         cDeck.addObserver(this);

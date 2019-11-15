@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Random;
 
-public class RealDeck extends Observable {
+public class Deck extends Observable {
 
     public static final int NCARDS = 60;
     //public int quantityOfManaSource = NCARDS/2;
@@ -16,7 +16,7 @@ public class RealDeck extends Observable {
     public int getQuantityOfMagics = 10;
     private List<Card> cartas;
 
-    public RealDeck(int jogador) {
+    public Deck(int jogador) {
         cartas = new ArrayList<Card>(NCARDS);
         Random r = new Random();
 

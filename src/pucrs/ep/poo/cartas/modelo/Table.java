@@ -44,6 +44,16 @@ public class Table extends Observable{
         notifyObservers(gameEvent);
     }
 
+    public int getNumberOfMana(){
+        int manaReserve = 0;
+
+        for (Card c : cartas){
+            if (c instanceof TerrainCard) manaReserve++;
+        }
+
+        return manaReserve;
+    }
+
     public void setSelectedCard(Card card){
         selected = card;
     }

@@ -11,10 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.shape.Line;
 import javafx.stage.Stage;
-import javafx.event.*;
 import pucrs.ep.poo.cartas.modelo.Game;
 
 
@@ -62,7 +59,7 @@ public class GameWindow extends Application implements Observer {
         grid1.setVgap(10);
         grid1.setPadding(new Insets(25, 25, 25, 25));
 
-        DeckView deckJ1 = new DeckView(1);
+        HandView deckJ1 = new HandView(1);
         ScrollPane sd1 = new ScrollPane();
         sd1.setPrefSize(1210, 470);
         sd1.setContent(deckJ1);
@@ -78,7 +75,7 @@ public class GameWindow extends Application implements Observer {
         grid2.setVgap(10);
         grid2.setPadding(new Insets(25, 25, 25, 25));
 
-        DeckView deckJ2 = new DeckView(2);
+        HandView deckJ2 = new HandView(2);
         ScrollPane sd2 = new ScrollPane();
         sd2.setPrefSize(1210, 470);
         sd2.setContent(deckJ2);

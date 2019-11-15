@@ -7,13 +7,14 @@ import java.util.*;
 public class Game extends Observable {
     private static Game game = new Game();
     private int lifeJ1, lifeJ2;
-    private CardDeck deckJ1, deckJ2;
-    private RealDeck grimorioJ1, grimorioJ2;
+    private Hand handJ1, handJ2;
+    private Deck grimorioJ1, grimorioJ2;
     private Table tableJ1, tableJ2;
     private int manaReserveJ1, manaReserveJ2;
     private int player;
     private int jogadas;
     private boolean terrenoBaixado;
+    private boolean cartaComprada;
 
     public static Game getInstance() {
         return (game);
@@ -24,15 +25,16 @@ public class Game extends Observable {
         lifeJ2 = 20;
         manaReserveJ1 = 0;
         manaReserveJ2 = 0;
-        grimorioJ1 = new RealDeck(1);
-        grimorioJ2 = new RealDeck(2);
-        deckJ1 = new CardDeck(1, grimorioJ1);
-        deckJ2 = new CardDeck(2, grimorioJ2);
+        grimorioJ1 = new Deck(1);
+        grimorioJ2 = new Deck(2);
+        handJ1 = new Hand(1, grimorioJ1);
+        handJ2 = new Hand(2, grimorioJ2);
         tableJ1 = new Table(1);
         tableJ2 = new Table(2);
         player = 1;
-        jogadas = CardDeck.NCARDS;
+        jogadas = Hand.NCARDS;
         terrenoBaixado = false;
+        cartaComprada = false;
     }
 
     public void nextPlayer() {
@@ -41,6 +43,7 @@ public class Game extends Observable {
             player = 1;
         }
         terrenoBaixado = false;
+        cartaComprada = false;
     }
 
     public int getManaReserveJ1() {
@@ -67,12 +70,12 @@ public class Game extends Observable {
         return (lifeJ2);
     }
 
-    public CardDeck getDeckJ1() {
-        return (deckJ1);
+    public Hand getHandJ1() {
+        return (handJ1);
     }
 
-    public CardDeck getDeckJ2() {
-        return (deckJ2);
+    public Hand getHandJ2() {
+        return (handJ2);
     }
 
     public Table getTableJ1() {
@@ -83,50 +86,68 @@ public class Game extends Observable {
         return tableJ2;
     }
 
-    public void play(CardDeck deckAcionado) {
+    public void play(Hand deckAcionado) {
         GameEvent gameEvent = null;
 
         if (player == 3) {
             player = 1;
         }
-        if (deckAcionado == deckJ1) {
+        if (deckAcionado == handJ1) {
             if (player != 1) {
                 gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.INVPLAY, "2");
                 setChanged();
                 notifyObservers((Object) gameEvent);
             } else {
                 //compra carta
-                deckJ1.buyOneCard(grimorioJ1);
+                buyoneCard(grimorioJ1, player);
                 setChanged();
                 notifyObservers((Object) gameEvent);
 
-                //Adiciona carta na mesa
-                addCardToTable(deckJ1.getSelectedCard(), player);
+                //
 
-                //Manda as mudanças
+                //Adiciona carta na mesa
+                addCardToTable(handJ1.getSelectedCard(), player);
                 setChanged();
                 notifyObservers((Object) gameEvent);
 
             }
-        } else if (deckAcionado == deckJ2) {
+        } else if (deckAcionado == handJ2) {
             if (player != 2) {
                 gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.INVPLAY, "1");
                 setChanged();
                 notifyObservers((Object) gameEvent);
             } else {
                 //compra carta
-                deckJ2.buyOneCard(grimorioJ2);
+                buyoneCard(grimorioJ2, player);
                 setChanged();
                 notifyObservers((Object) gameEvent);
 
-                //Adiciona carta na mesa
-                addCardToTable(deckJ2.getSelectedCard(), player);
+                //
 
-                //Manda as mudanças
+                //Adiciona carta na mesa
+                addCardToTable(handJ2.getSelectedCard(), player);
                 setChanged();
                 notifyObservers((Object) gameEvent);
             }
         }
+    }
+
+    public void buyoneCard (Deck grimorio, int jogador){
+
+        if (jogador == 1 && cartaComprada==false) {
+
+            handJ1.buyOneCard(grimorio);
+            cartaComprada=true;
+
+        }
+
+        if (jogador ==2  && cartaComprada==false) {
+
+            handJ2.buyOneCard(grimorio);
+            cartaComprada=true;
+
+        }
+
     }
 
     public void addCardToTable(Card carta, int jogador) {
@@ -138,10 +159,9 @@ public class Game extends Observable {
                 manaReserveJ1++;
             } else if (carta instanceof CreatureCard && manaReserveJ1>=((CreatureCard) carta).getCost()){
                 manaReserveJ1=manaReserveJ1-((CreatureCard) carta).getCost();
-
-            }
-
-            else {
+            } else if (carta instanceof SorceryCard && manaReserveJ1>= ((SorceryCard) carta).getCost()){
+                manaReserveJ1=manaReserveJ1-((SorceryCard) carta).getCost();
+            } else {
                 GameEvent gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.INVCARD, "");
                 setChanged();
                 notifyObservers((Object) gameEvent);
@@ -162,17 +182,14 @@ public class Game extends Observable {
                 manaReserveJ2++;
             } else if (carta instanceof CreatureCard && manaReserveJ2>=((CreatureCard) carta).getCost()){
             manaReserveJ2=manaReserveJ2-((CreatureCard) carta).getCost();
-
-        }
-
-
-            else {
+            } else if (carta instanceof SorceryCard && manaReserveJ2>= ((SorceryCard) carta).getCost()) {
+                manaReserveJ2 = manaReserveJ2 - ((SorceryCard) carta).getCost();
+            } else {
                 GameEvent gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.INVCARD, "");
                 setChanged();
                 notifyObservers((Object) gameEvent);
                 return;
             }
-
 
             tableJ2.addToTable(carta);
 
@@ -181,13 +198,12 @@ public class Game extends Observable {
 
         }
 
-
     }
 
     // Acionada pelo botao de limpar    
     public void removeSelected() {
         GameEvent gameEvent = null;
-        deckJ1.removeSel();
-        deckJ2.removeSel();
+        handJ1.removeSel();
+        handJ2.removeSel();
     }
 }

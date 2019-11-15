@@ -6,28 +6,28 @@ import javafx.geometry.Pos;
 import javafx.scene.layout.HBox;
 import pucrs.ep.poo.cartas.modelo.*;
 
-public class DeckView extends HBox implements CardObserver,Observer{
+public class HandView extends HBox implements CardObserver,Observer{
     private int jogador;
-    private CardDeck cDeck;
+    private Hand hand;
     private Card selectedCard;
 
 
-    public DeckView(int nroJog){
+    public HandView(int nroJog){
         super(4);
         this.setAlignment(Pos.CENTER);
         
         jogador = nroJog;
         selectedCard = null;
         
-        cDeck = null;
+        hand = null;
         if (jogador == 1){
-            cDeck = Game.getInstance().getDeckJ1();
+            hand = Game.getInstance().getHandJ1();
         }else{
-            cDeck = Game.getInstance().getDeckJ2();
+            hand = Game.getInstance().getHandJ2();
         }
-        cDeck.addObserver(this);
+        hand.addObserver(this);
         
-        for(Card card:cDeck.getCards()){
+        for(Card card: hand.getCards()){
             CardView cv = new CardView(card);
             cv.setCardObserver(this);
             this.getChildren().add(cv);
@@ -36,9 +36,9 @@ public class DeckView extends HBox implements CardObserver,Observer{
     
     @Override
     public void cardSelected(CardView cv){
-        cDeck.setSelectedCard(cv.getCard());
+        hand.setSelectedCard(cv.getCard());
         selectedCard = cv.getCard();
-        Game.getInstance().play(cDeck);
+        Game.getInstance().play(hand);
     }
         
     private void removeSel(){
@@ -54,7 +54,7 @@ public class DeckView extends HBox implements CardObserver,Observer{
 
     private void addToHand() {
         List cards = getChildren();
-        CardView cv = new CardView(cDeck.getBuyedCard());
+        CardView cv = new CardView(hand.getBuyedCard());
         cv.setCardObserver(this);
         cards.add(cv);
     }
