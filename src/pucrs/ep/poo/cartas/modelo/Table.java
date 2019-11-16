@@ -44,6 +44,40 @@ public class Table extends Observable{
         notifyObservers(gameEvent);
     }
 
+    public void removeCreature(CreatureCard criatura) {
+        if (criatura == null) {
+            return;
+        }
+
+        CreatureCard creature = null;
+
+        for (Card c : cartas){
+            if (c instanceof CreatureCard){
+                if (c==criatura) creature=criatura;
+            }
+        }
+
+        cartas.remove(creature);
+
+        GameEvent gameEvent = new GameEvent(GameEvent.Target.DECK, GameEvent.Action.REMOVESEL, "");
+        setChanged();
+        notifyObservers(gameEvent);
+    }
+
+    public ArrayList<CreatureCard> getCreatures(){
+
+        ArrayList<CreatureCard> criaturas = new ArrayList<>();
+
+        for (Card c : cartas) {
+            if (c instanceof CreatureCard){
+                criaturas.add((CreatureCard) c);
+            }
+        }
+
+        return criaturas;
+    }
+
+
     public int getNumberOfMana(){
         int manaReserve = 0;
 

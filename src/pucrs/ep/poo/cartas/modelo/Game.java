@@ -38,7 +38,7 @@ public class Game extends Observable {
         terrenoBaixado = false;
         cartaComprada = false;
         manaResetado = false;
-        ataque=false;
+        ataque = false;
 
     }
 
@@ -137,15 +137,92 @@ public class Game extends Observable {
         }
     }
 
-    public void attack(){
-        if (player == 1 && ataque==false){
+    public void attack() {
+        if (player == 1 && ataque == false) {
+            ArrayList<CreatureCard> atacantes = tableJ1.getCreatures();
+            ArrayList<CreatureCard> defensores = tableJ2.getCreatures();
+
+            int numeroDeAtaques = atacantes.size();
+            if (atacantes.size()>defensores.size()) numeroDeAtaques = defensores.size();
+
+            for (int i=0; i<numeroDeAtaques; i++){
+                CreatureCard atacante = atacantes.get(i);
+                CreatureCard defensor = defensores.get(i);
+
+                int poderDeAtaqueAtacante = atacante.getAttack();
+                int poderDeDefesaAtacante = atacante.getDefense();
+                int poderAtaqueDefensor = defensor.getAttack();
+                int poderDefesaDefensor = defensor.getDefense();
+
+                //atacante é suficientemente forte para matar o defensor
+                if (poderDeAtaqueAtacante>=poderDefesaDefensor){
+
+                    //checa se o atacante também vai morrer
+                    if (poderAtaqueDefensor>=poderDeDefesaAtacante){
+                        removeCreature(tableJ1, atacante);
+                    }
+
+                    //remove o defensor da mesa do adversário
+                    removeCreature(tableJ2, defensor);
+                }
+
+                //atacante NÃO é suficientemente forte para matar o defensor
+                if (poderDeAtaqueAtacante<poderDefesaDefensor){
+
+                    //checa se o atacante vai morrer
+                    if (poderAtaqueDefensor>=poderDeDefesaAtacante){
+                        removeCreature(tableJ1, atacante);
+                    }
+
+                }
+            }
+
 
         }
 
-        if (player == 2 && ataque==false){
+        if (player == 2 && ataque == false) {
+            ArrayList<CreatureCard> atacantes = tableJ2.getCreatures();
+            ArrayList<CreatureCard> defensores = tableJ1.getCreatures();
 
-        }
-        else return;
+            int numeroDeAtaques = atacantes.size();
+            if (atacantes.size()>defensores.size()) numeroDeAtaques = defensores.size();
+
+            for (int i=0; i<numeroDeAtaques; i++){
+                CreatureCard atacante = atacantes.get(i);
+                CreatureCard defensor = defensores.get(i);
+
+                int poderDeAtaqueAtacante = atacante.getAttack();
+                int poderDeDefesaAtacante = atacante.getDefense();
+                int poderAtaqueDefensor = defensor.getAttack();
+                int poderDefesaDefensor = defensor.getDefense();
+
+                //atacante é suficientemente forte para matar o defensor
+                if (poderDeAtaqueAtacante>=poderDefesaDefensor){
+
+                    //checa se o atacante também vai morrer
+                    if (poderAtaqueDefensor>=poderDeDefesaAtacante){
+                        removeCreature(tableJ2, atacante);
+                    }
+
+                    //remove o defensor da mesa do adversário
+                    removeCreature(tableJ1, defensor);
+                }
+
+                //atacante NÃO é suficientemente forte para matar o defensor
+                if (poderDeAtaqueAtacante<poderDefesaDefensor){
+
+                    //checa se o atacante vai morrer
+                    if (poderAtaqueDefensor>=poderDeDefesaAtacante){
+                        removeCreature(tableJ2, atacante);
+                    }
+
+                }
+            }
+
+
+
+        } else return;
+
     }
 
     public void buyoneCard() {
@@ -157,8 +234,7 @@ public class Game extends Observable {
         if (player == 2 && cartaComprada == false) {
             handJ2.buyOneCard(grimorioJ2);
             cartaComprada = true;
-        }
-        else return;
+        } else return;
     }
 
     public void addCardToTable(Card carta, int jogador) {
@@ -172,8 +248,9 @@ public class Game extends Observable {
                 manaReserveJ1 = manaReserveJ1 - ((CreatureCard) carta).getCost();
             } else if (carta instanceof SorceryCard && manaReserveJ1 >= ((SorceryCard) carta).getCost()) {
                 manaReserveJ1 = manaReserveJ1 - ((SorceryCard) carta).getCost();
-            } else if (carta instanceof BuyCard){ return;}
-            else {
+            } else if (carta instanceof BuyCard) {
+                return;
+            } else {
                 GameEvent gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.INVCARD, "");
                 setChanged();
                 notifyObservers((Object) gameEvent);
@@ -196,8 +273,8 @@ public class Game extends Observable {
                 manaReserveJ2 = manaReserveJ2 - ((CreatureCard) carta).getCost();
             } else if (carta instanceof SorceryCard && manaReserveJ2 >= ((SorceryCard) carta).getCost()) {
                 manaReserveJ2 = manaReserveJ2 - ((SorceryCard) carta).getCost();
-            } else if (carta instanceof BuyCard){}
-            else {
+            } else if (carta instanceof BuyCard) {
+            } else {
                 GameEvent gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.INVCARD, "");
                 setChanged();
                 notifyObservers((Object) gameEvent);
@@ -213,9 +290,14 @@ public class Game extends Observable {
 
     }
 
+    public void removeCreature(Table table, CreatureCard criatura) {
+        GameEvent ge = null;
+        table.removeCreature(criatura);
+    }
+
     // Acionada pelo botao de limpar    
     public void removeSelected(Hand hand) {
         GameEvent gameEvent = null;
         hand.removeSel();
-            }
+    }
 }
