@@ -123,11 +123,6 @@ public class Game extends Observable {
                 setChanged();
                 notifyObservers((Object) gameEvent);
             } else {
-                //compra carta
-                buyoneCard();
-                setChanged();
-                notifyObservers((Object) gameEvent);
-
                 //resetMana
                 if (manaResetado == false) {
                     setManaReserveJ2(tableJ2.getNumberOfMana());
