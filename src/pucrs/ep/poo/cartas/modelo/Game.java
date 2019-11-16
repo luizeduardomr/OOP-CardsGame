@@ -16,6 +16,7 @@ public class Game extends Observable {
     private boolean terrenoBaixado;
     private boolean cartaComprada;
     private boolean manaResetado;
+    private boolean ataque;
 
     public static Game getInstance() {
         return (game);
@@ -37,17 +38,19 @@ public class Game extends Observable {
         terrenoBaixado = false;
         cartaComprada = false;
         manaResetado = false;
+        ataque=false;
 
     }
 
     public void nextPlayer() {
         player++;
-        if (player == 4) {
+        if (player == 3) {
             player = 1;
         }
         terrenoBaixado = false;
         cartaComprada = false;
         manaResetado = false;
+
     }
 
     public int getManaReserveJ1() {
@@ -90,23 +93,18 @@ public class Game extends Observable {
         return tableJ2;
     }
 
-    public void play(Hand deckAcionado) {
+    public void play(Hand maoAcionada) {
         GameEvent gameEvent = null;
 
         if (player == 3) {
             player = 1;
         }
-        if (deckAcionado == handJ1) {
+        if (maoAcionada == handJ1) {
             if (player != 1) {
                 gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.INVPLAY, "2");
                 setChanged();
                 notifyObservers((Object) gameEvent);
             } else {
-                //compra carta
-                buyoneCard(grimorioJ1, player);
-                setChanged();
-                notifyObservers((Object) gameEvent);
-
                 //resetMana
                 if (manaResetado == false) {
                     setManaReserveJ1(tableJ1.getNumberOfMana());
@@ -119,14 +117,14 @@ public class Game extends Observable {
                 notifyObservers((Object) gameEvent);
 
             }
-        } else if (deckAcionado == handJ2) {
+        } else if (maoAcionada == handJ2) {
             if (player != 2) {
                 gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.INVPLAY, "1");
                 setChanged();
                 notifyObservers((Object) gameEvent);
             } else {
                 //compra carta
-                buyoneCard(grimorioJ2, player);
+                buyoneCard();
                 setChanged();
                 notifyObservers((Object) gameEvent);
 
@@ -144,22 +142,28 @@ public class Game extends Observable {
         }
     }
 
-    public void buyoneCard(Deck grimorio, int jogador) {
-
-        if (jogador == 1 && cartaComprada == false) {
-
-            handJ1.buyOneCard(grimorio);
-            cartaComprada = true;
+    public void attack(){
+        if (player == 1 && ataque==false){
 
         }
 
-        if (jogador == 2 && cartaComprada == false) {
-
-            handJ2.buyOneCard(grimorio);
-            cartaComprada = true;
+        if (player == 2 && ataque==false){
 
         }
+        else return;
+    }
 
+    public void buyoneCard() {
+        if (player == 1 && cartaComprada == false) {
+            handJ1.buyOneCard(grimorioJ1);
+            cartaComprada = true;
+        }
+
+        if (player == 2 && cartaComprada == false) {
+            handJ2.buyOneCard(grimorioJ2);
+            cartaComprada = true;
+        }
+        else return;
     }
 
     public void addCardToTable(Card carta, int jogador) {
@@ -173,7 +177,8 @@ public class Game extends Observable {
                 manaReserveJ1 = manaReserveJ1 - ((CreatureCard) carta).getCost();
             } else if (carta instanceof SorceryCard && manaReserveJ1 >= ((SorceryCard) carta).getCost()) {
                 manaReserveJ1 = manaReserveJ1 - ((SorceryCard) carta).getCost();
-            } else {
+            } else if (carta instanceof BuyCard){ return;}
+            else {
                 GameEvent gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.INVCARD, "");
                 setChanged();
                 notifyObservers((Object) gameEvent);
@@ -196,7 +201,8 @@ public class Game extends Observable {
                 manaReserveJ2 = manaReserveJ2 - ((CreatureCard) carta).getCost();
             } else if (carta instanceof SorceryCard && manaReserveJ2 >= ((SorceryCard) carta).getCost()) {
                 manaReserveJ2 = manaReserveJ2 - ((SorceryCard) carta).getCost();
-            } else {
+            } else if (carta instanceof BuyCard){}
+            else {
                 GameEvent gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.INVCARD, "");
                 setChanged();
                 notifyObservers((Object) gameEvent);

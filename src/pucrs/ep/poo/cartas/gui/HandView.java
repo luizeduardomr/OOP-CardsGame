@@ -62,16 +62,21 @@ public class HandView extends HBox implements CardObserver,Observer{
 
     @Override
     public void update(Observable o,Object arg){
+
         if (arg == null){
             return;
         }
+
         GameEvent ge = (GameEvent)arg;
+
         if (ge.getTarget() != GameEvent.Target.DECK){
             return;
         }
+
         if (ge.getAction() == GameEvent.Action.REMOVESEL){
             removeSel();
         }
+
         if (ge.getAction() == GameEvent.Action.ADDTOHAND) {
             addToHand();
         }

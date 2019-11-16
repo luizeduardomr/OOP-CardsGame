@@ -47,6 +47,6 @@ public class PlacarView extends GridPane implements Observer{
         ptsJ2.setText(""+Game.getInstance().getLifeJ2());
         manaJ1.setText(""+Game.getInstance().getManaReserveJ1());
         manaJ2.setText(""+Game.getInstance().getManaReserveJ2());
-    }    
+    }
 }
 

@@ -52,6 +52,18 @@ public class GameWindow extends Application implements Observer {
         Button butNextPlayer2 = new Button("Passar turno");
         butNextPlayer2.setOnAction(e -> Game.getInstance().nextPlayer());
 
+        //Cria os botões para comprar carta
+        Button butBuyOneCardJ1 = new Button("Comprar");
+        butBuyOneCardJ1.setOnAction(e-> Game.getInstance().buyoneCard());
+        Button butBuyOneCardJ2 = new Button("Comprar");
+        butBuyOneCardJ2.setOnAction(e-> Game.getInstance().buyoneCard());
+
+        //Cria os botões de ataque
+        Button butAttackJ1 = new Button("Atacar");
+        butAttackJ1.setOnAction(e-> Game.getInstance().attack());
+        Button butAttackJ2 = new Button("Atacar");
+        butAttackJ2.setOnAction(e-> Game.getInstance().attack());
+
         // Mão Jogador 1
         GridPane grid1 = new GridPane();
         grid1.setAlignment(Pos.CENTER);
@@ -59,14 +71,16 @@ public class GameWindow extends Application implements Observer {
         grid1.setVgap(10);
         grid1.setPadding(new Insets(25, 25, 25, 25));
 
-        HandView deckJ1 = new HandView(1);
+        HandView handJ1 = new HandView(1);
         ScrollPane sd1 = new ScrollPane();
         sd1.setPrefSize(1210, 470);
-        sd1.setContent(deckJ1);
+        sd1.setContent(handJ1);
         grid1.add(sd1, 0, 0);
 
         grid1.add(placar, 0, 1);
         grid1.add(butNextPlayer1, 1, 1);
+        grid1.add(butBuyOneCardJ1,1,2);
+        grid1.add(butAttackJ1,1,3);
 
         //Mão Jogador 2
         GridPane grid2 = new GridPane();
@@ -75,14 +89,16 @@ public class GameWindow extends Application implements Observer {
         grid2.setVgap(10);
         grid2.setPadding(new Insets(25, 25, 25, 25));
 
-        HandView deckJ2 = new HandView(2);
+        HandView handJ2 = new HandView(2);
         ScrollPane sd2 = new ScrollPane();
         sd2.setPrefSize(1210, 470);
-        sd2.setContent(deckJ2);
+        sd2.setContent(handJ2);
         grid2.add(sd2, 0, 0);
 
         grid2.add(placar2, 0, 1);
         grid2.add(butNextPlayer2, 1, 1);
+        grid2.add(butBuyOneCardJ2,1,2);
+        grid2.add(butAttackJ2,1,3);
 
         // Mesa Jogador 1
         GridPane grid3 = new GridPane();
@@ -134,7 +150,9 @@ public class GameWindow extends Application implements Observer {
         if (arg == null) {
             return;
         }
+
         GameEvent eg = (GameEvent) arg;
+
         if (eg.getTarget() == GameEvent.Target.GWIN) {
             switch (eg.getAction()) {
                 case INVPLAY:
