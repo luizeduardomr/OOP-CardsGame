@@ -33,6 +33,10 @@ public class Card extends Observable{
         return(turned);
     }
 
+    public String toString(){
+        return "Carta: " + id + " ";
+    }
+
 
     public void turn(){
         if(turned == true){

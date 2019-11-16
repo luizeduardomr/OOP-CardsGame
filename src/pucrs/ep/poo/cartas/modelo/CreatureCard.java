@@ -48,4 +48,9 @@ public class CreatureCard extends Card {
     public void setColour(Colour cor) {
         this.colour = cor;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " Ataque: " + attack + " Defesa: " + defense +" Custo: " + cost;
+    }
 }
