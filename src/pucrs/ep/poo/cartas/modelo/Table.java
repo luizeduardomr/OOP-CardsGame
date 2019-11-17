@@ -59,7 +59,7 @@ public class Table extends Observable{
 
         cartas.remove(creature);
 
-        GameEvent gameEvent = new GameEvent(GameEvent.Target.DECK, GameEvent.Action.REMOVESEL, "");
+        GameEvent gameEvent = new GameEvent(GameEvent.Target.TABLE, GameEvent.Action.REMOVESEL, "");
         setChanged();
         notifyObservers(gameEvent);
     }

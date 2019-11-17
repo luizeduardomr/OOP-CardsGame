@@ -83,6 +83,9 @@ public class TableView extends HBox implements CardObserver, Observer {
         if (ge.getTarget() != GameEvent.Target.TABLE) {
             return;
         }
+        if (ge.getAction() == GameEvent.Action.REMOVESEL){
+            removeSel();
+        }
         if (ge.getAction() == GameEvent.Action.ADDTOTABLE) {
             addSel();
         }
