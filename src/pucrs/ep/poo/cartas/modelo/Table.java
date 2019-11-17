@@ -57,11 +57,15 @@ public class Table extends Observable{
             }
         }
 
+        selected = creature;
+
         cartas.remove(creature);
 
         GameEvent gameEvent = new GameEvent(GameEvent.Target.TABLE, GameEvent.Action.REMOVESEL, "");
         setChanged();
         notifyObservers(gameEvent);
+
+        selected = null;
     }
 
     public ArrayList<CreatureCard> getCreatures(){
