@@ -37,7 +37,6 @@ public class Game extends Observable {
         jogadas = Hand.NCARDS;
         terrenoBaixado = false;
         cartaComprada = false;
-        manaResetado = false;
         ataque = false;
 
     }
@@ -49,8 +48,8 @@ public class Game extends Observable {
         }
         terrenoBaixado = false;
         cartaComprada = false;
-        manaResetado = false;
-
+        setManaReserveJ1(tableJ1.getNumberOfMana());
+        setManaReserveJ2(tableJ2.getNumberOfMana());
     }
 
     public int getManaReserveJ1() {
@@ -105,11 +104,7 @@ public class Game extends Observable {
                 setChanged();
                 notifyObservers((Object) gameEvent);
             } else {
-                //resetMana
-                if (manaResetado == false) {
-                    setManaReserveJ1(tableJ1.getNumberOfMana());
-                    manaResetado = true;
-                }
+
 
                 //Adiciona carta na mesa
                 addCardToTable(handJ1.getSelectedCard(), player);
@@ -123,11 +118,6 @@ public class Game extends Observable {
                 setChanged();
                 notifyObservers((Object) gameEvent);
             } else {
-                //resetMana
-                if (manaResetado == false) {
-                    setManaReserveJ2(tableJ2.getNumberOfMana());
-                    manaResetado = true;
-                }
 
                 //Adiciona carta na mesa
                 addCardToTable(handJ2.getSelectedCard(), player);
@@ -141,7 +131,8 @@ public class Game extends Observable {
         if (player == 1 && ataque == false) {
             ArrayList<CreatureCard> atacantes = tableJ1.getCreatures();
             ArrayList<CreatureCard> defensores = tableJ2.getCreatures();
-
+            System.out.println("Atacantes: \n" + atacantes);
+            System.out.println("Defensores: \n" + defensores);
             int numeroDeAtaques = atacantes.size();
             if (atacantes.size()>defensores.size()) numeroDeAtaques = defensores.size();
 
@@ -160,10 +151,12 @@ public class Game extends Observable {
                     //checa se o atacante também vai morrer
                     if (poderAtaqueDefensor>=poderDeDefesaAtacante){
                         removeCreature(tableJ1, atacante);
+                        atacantes.remove(atacante);
                     }
 
                     //remove o defensor da mesa do adversário
                     removeCreature(tableJ2, defensor);
+                    defensores.remove(defensor);
                 }
 
                 //atacante NÃO é suficientemente forte para matar o defensor
@@ -177,7 +170,8 @@ public class Game extends Observable {
                 }
             }
 
-
+            System.out.println("Atacantes depois: \n" + atacantes);
+            System.out.println("Defensores depois: \n" + defensores);
         }
 
         if (player == 2 && ataque == false) {
@@ -291,7 +285,6 @@ public class Game extends Observable {
     }
 
     public void removeCreature(Table table, CreatureCard criatura) {
-        GameEvent ge = null;
         table.removeCreature(criatura);
     }
 

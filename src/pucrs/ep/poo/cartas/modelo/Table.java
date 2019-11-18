@@ -38,7 +38,7 @@ public class Table extends Observable{
             return;
         }
         cartas.remove(selected);
-        selected = null;
+
         GameEvent gameEvent = new GameEvent(GameEvent.Target.DECK,GameEvent.Action.REMOVESEL,"");
         setChanged();
         notifyObservers(gameEvent);
@@ -48,7 +48,6 @@ public class Table extends Observable{
         if (criatura == null) {
             return;
         }
-
         CreatureCard creature = null;
 
         for (Card c : cartas){
