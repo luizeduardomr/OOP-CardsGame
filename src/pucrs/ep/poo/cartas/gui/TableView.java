@@ -62,26 +62,21 @@ public class TableView extends HBox implements CardObserver, Observer {
         }
     }
 
-    private void removeSel() {
+
+    private void removeSel(){
         selectedCard = table.getSelectedCard();
-        CardView cvRemovable = new CardView(selectedCard);
-        getChildren().remove(cvRemovable);
-
-       
-      //  List cards = table.getCards();
-
-
-      //  getChildren().removeAll();
-       // for (int i = 0; i < cards.size(); i++) {
-       //     CardView cv = new CardView((Card) cards.get(i));
-       //         getChildren().add(cv);
-       // }
-
+        List cards = getChildren();
+        for(int i=0;i<cards.size();i++){
+            CardView cv = (CardView)cards.get(i);
+            if (cv.getCard() == selectedCard){
+                getChildren().remove(cv);
+                selectedCard = null;
+            }
+        }
     }
 
     @Override
     public void update(Observable o, Object arg) {
-
         if (arg == null) {
             return;
         }

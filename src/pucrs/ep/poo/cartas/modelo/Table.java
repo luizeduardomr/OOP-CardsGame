@@ -39,7 +39,7 @@ public class Table extends Observable{
         }
         cartas.remove(selected);
 
-        GameEvent gameEvent = new GameEvent(GameEvent.Target.DECK,GameEvent.Action.REMOVESEL,"");
+        GameEvent gameEvent = new GameEvent(GameEvent.Target.TABLE,GameEvent.Action.REMOVESEL,"");
         setChanged();
         notifyObservers(gameEvent);
     }
@@ -48,23 +48,9 @@ public class Table extends Observable{
         if (criatura == null) {
             return;
         }
-        CreatureCard creature = null;
 
-        for (Card c : cartas){
-            if (c instanceof CreatureCard){
-                if (c==criatura) creature=criatura;
-            }
-        }
-
-        selected = creature;
-
-        cartas.remove(creature);
-
-        GameEvent gameEvent = new GameEvent(GameEvent.Target.TABLE, GameEvent.Action.REMOVESEL, "");
-        setChanged();
-        notifyObservers(gameEvent);
-
-        selected = null;
+        selected = criatura;
+        removeSel();
     }
 
     public ArrayList<CreatureCard> getCreatures(){

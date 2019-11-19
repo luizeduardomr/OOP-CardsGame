@@ -131,8 +131,7 @@ public class Game extends Observable {
         if (player == 1 && ataque == false) {
             ArrayList<CreatureCard> atacantes = tableJ1.getCreatures();
             ArrayList<CreatureCard> defensores = tableJ2.getCreatures();
-            System.out.println("Atacantes: \n" + atacantes);
-            System.out.println("Defensores: \n" + defensores);
+
             int numeroDeAtaques = atacantes.size();
             if (atacantes.size()>defensores.size()) numeroDeAtaques = defensores.size();
 
@@ -170,8 +169,6 @@ public class Game extends Observable {
                 }
             }
 
-            System.out.println("Atacantes depois: \n" + atacantes);
-            System.out.println("Defensores depois: \n" + defensores);
         }
 
         if (player == 2 && ataque == false) {
