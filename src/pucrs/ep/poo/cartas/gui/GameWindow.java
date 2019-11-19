@@ -73,7 +73,7 @@ public class GameWindow extends Application implements Observer {
 
         HandView handJ1 = new HandView(1);
         ScrollPane sd1 = new ScrollPane();
-        sd1.setPrefSize(800, 470);
+        sd1.setPrefSize(1500, 470);
         sd1.setContent(handJ1);
         grid1.add(sd1, 0, 0);
 
@@ -91,7 +91,7 @@ public class GameWindow extends Application implements Observer {
 
         HandView handJ2 = new HandView(2);
         ScrollPane sd2 = new ScrollPane();
-        sd2.setPrefSize(800, 470);
+        sd2.setPrefSize(1500, 470);
         sd2.setContent(handJ2);
         grid2.add(sd2, 0, 0);
 
