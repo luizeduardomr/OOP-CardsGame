@@ -133,7 +133,20 @@ public class Game extends Observable {
             ArrayList<CreatureCard> defensores = tableJ2.getCreatures();
 
             int numeroDeAtaques = atacantes.size();
-            if (atacantes.size()>defensores.size()) numeroDeAtaques = defensores.size();
+
+            //Se há mais atacantes, calcula o dano
+            if (atacantes.size()>defensores.size()){
+                numeroDeAtaques = defensores.size();
+                int diferenca = atacantes.size() - defensores.size();
+                int dano = 0;
+                for(int j = atacantes.size()-1; j>=diferenca-1; j--){
+                    CreatureCard atacante = atacantes.get(j);
+                    dano += atacante.getAttack();
+                    System.out.println("Iteração número " + j);
+                }
+                lifeJ2 -= dano;
+                System.out.println("Life J2: " + lifeJ2);
+            }
 
             for (int i=0; i<numeroDeAtaques; i++){
                 CreatureCard atacante = atacantes.get(i);
@@ -176,7 +189,18 @@ public class Game extends Observable {
             ArrayList<CreatureCard> defensores = tableJ1.getCreatures();
 
             int numeroDeAtaques = atacantes.size();
-            if (atacantes.size()>defensores.size()) numeroDeAtaques = defensores.size();
+            if (atacantes.size()>defensores.size()){
+                numeroDeAtaques = defensores.size();
+                int diferenca = atacantes.size() - defensores.size();
+                int dano = 0;
+                for(int j = atacantes.size()-1; j>=diferenca-1; j--){
+                    CreatureCard atacante = atacantes.get(j);
+                    dano += atacante.getAttack();
+                    System.out.println("Iteração número " + j);
+                }
+                lifeJ1 -= dano;
+                System.out.println("Life J1: " + lifeJ1);
+            }
 
             for (int i=0; i<numeroDeAtaques; i++){
                 CreatureCard atacante = atacantes.get(i);
