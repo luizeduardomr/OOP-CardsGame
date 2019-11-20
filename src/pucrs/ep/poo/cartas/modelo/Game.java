@@ -17,6 +17,9 @@ public class Game extends Observable {
     private boolean cartaComprada;
     private boolean manaResetado;
     private boolean ataque;
+    private String nomeGremistaJ1;
+    private String nomeColoradoJ2;
+
 
     public static Game getInstance() {
         return (game);
@@ -38,7 +41,17 @@ public class Game extends Observable {
         terrenoBaixado = false;
         cartaComprada = false;
         ataque = false;
+        nomeGremistaJ1 = "Lucas";
+        nomeColoradoJ2 = "Alexandre";
 
+    }
+
+    public String getNomeGremistaJ1(){
+        return nomeGremistaJ1;
+    }
+
+    public String getNomeColoradoJ2(){
+        return nomeColoradoJ2;
     }
 
     public void nextPlayer() {
@@ -100,7 +113,7 @@ public class Game extends Observable {
         }
         if (maoAcionada == handJ1) {
             if (player != 1) {
-                gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.INVPLAY, "2");
+                gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.INVPLAY, getNomeColoradoJ2());
                 setChanged();
                 notifyObservers((Object) gameEvent);
             } else {
@@ -114,7 +127,7 @@ public class Game extends Observable {
             }
         } else if (maoAcionada == handJ2) {
             if (player != 2) {
-                gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.INVPLAY, "1");
+                gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.INVPLAY, getNomeGremistaJ1());
                 setChanged();
                 notifyObservers((Object) gameEvent);
             } else {
@@ -135,31 +148,28 @@ public class Game extends Observable {
             int numeroDeAtaques = atacantes.size();
 
             //Se há mais atacantes, calcula o dano
-            if (atacantes.size()>defensores.size()){
+            if (atacantes.size() > defensores.size()) {
                 numeroDeAtaques = defensores.size();
                 int dano = 0;
-                if(atacantes.size() == 1){
-                    dano += atacantes.get(0).getAttack();
-                }else{
+                {
                     int diferenca = atacantes.size() - defensores.size();
-                    for(int j = atacantes.size()-1; j>diferenca-1; j--){
+                    for (int j = atacantes.size() - 1; j >= atacantes.size() - diferenca; j--) {
                         CreatureCard atacante = atacantes.get(j);
                         dano += atacante.getAttack();
-                        System.out.println("Iteração número " + j);
                     }
                 }
 
                 lifeJ2 -= dano;
-                System.out.println("Life J2: " + lifeJ2);
+
                 //Verifica se o jogador perdeu toda vida
-                if(lifeJ2<=0){
-                    GameEvent gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.WIN, "Jogador 1");
+                if (lifeJ2 <= 0) {
+                    GameEvent gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.WIN, getNomeGremistaJ1());
                     setChanged();
                     notifyObservers((Object) gameEvent);
                 }
             }
 
-            for (int i=0; i<numeroDeAtaques; i++){
+            for (int i = 0; i < numeroDeAtaques; i++) {
                 CreatureCard atacante = atacantes.get(i);
                 CreatureCard defensor = defensores.get(i);
 
@@ -169,10 +179,10 @@ public class Game extends Observable {
                 int poderDefesaDefensor = defensor.getDefense();
 
                 //atacante é suficientemente forte para matar o defensor
-                if (poderDeAtaqueAtacante>=poderDefesaDefensor){
+                if (poderDeAtaqueAtacante >= poderDefesaDefensor) {
 
                     //checa se o atacante também vai morrer
-                    if (poderAtaqueDefensor>=poderDeDefesaAtacante){
+                    if (poderAtaqueDefensor >= poderDeDefesaAtacante) {
                         removeCreature(tableJ1, atacante);
                         atacantes.remove(atacante);
                     }
@@ -183,10 +193,10 @@ public class Game extends Observable {
                 }
 
                 //atacante NÃO é suficientemente forte para matar o defensor
-                if (poderDeAtaqueAtacante<poderDefesaDefensor){
+                if (poderDeAtaqueAtacante < poderDefesaDefensor) {
 
                     //checa se o atacante vai morrer
-                    if (poderAtaqueDefensor>=poderDeDefesaAtacante){
+                    if (poderAtaqueDefensor >= poderDeDefesaAtacante) {
                         removeCreature(tableJ1, atacante);
                     }
 
@@ -200,31 +210,30 @@ public class Game extends Observable {
             ArrayList<CreatureCard> defensores = tableJ1.getCreatures();
 
             int numeroDeAtaques = atacantes.size();
-            if (atacantes.size()>defensores.size()){
+
+            //Se há mais atacantes, calcula o dano
+            if (atacantes.size() > defensores.size()) {
                 numeroDeAtaques = defensores.size();
                 int dano = 0;
-                if(atacantes.size() == 1){
-                    dano += atacantes.get(0).getAttack();
-                }else{
+                {
                     int diferenca = atacantes.size() - defensores.size();
-                    for(int j = atacantes.size()-1; j>diferenca-1; j--){
+                    for (int j = atacantes.size() - 1; j >= atacantes.size() - diferenca; j--) {
                         CreatureCard atacante = atacantes.get(j);
                         dano += atacante.getAttack();
-                        System.out.println("Iteração número " + j);
                     }
                 }
 
                 lifeJ1 -= dano;
-                System.out.println("Life J1: " + lifeJ1);
+
                 //Verifica se o jogador perdeu toda vida
-                if(lifeJ1<=0){
-                    GameEvent gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.WIN, "Jogador 2");
+                if (lifeJ1 <= 0) {
+                    GameEvent gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.WIN, getNomeColoradoJ2());
                     setChanged();
                     notifyObservers((Object) gameEvent);
                 }
             }
 
-            for (int i=0; i<numeroDeAtaques; i++){
+            for (int i = 0; i < numeroDeAtaques; i++) {
                 CreatureCard atacante = atacantes.get(i);
                 CreatureCard defensor = defensores.get(i);
 
@@ -234,10 +243,10 @@ public class Game extends Observable {
                 int poderDefesaDefensor = defensor.getDefense();
 
                 //atacante é suficientemente forte para matar o defensor
-                if (poderDeAtaqueAtacante>=poderDefesaDefensor){
+                if (poderDeAtaqueAtacante >= poderDefesaDefensor) {
 
                     //checa se o atacante também vai morrer
-                    if (poderAtaqueDefensor>=poderDeDefesaAtacante){
+                    if (poderAtaqueDefensor >= poderDeDefesaAtacante) {
                         removeCreature(tableJ2, atacante);
                     }
 
@@ -246,16 +255,15 @@ public class Game extends Observable {
                 }
 
                 //atacante NÃO é suficientemente forte para matar o defensor
-                if (poderDeAtaqueAtacante<poderDefesaDefensor){
+                if (poderDeAtaqueAtacante < poderDefesaDefensor) {
 
                     //checa se o atacante vai morrer
-                    if (poderAtaqueDefensor>=poderDeDefesaAtacante){
+                    if (poderAtaqueDefensor >= poderDeDefesaAtacante) {
                         removeCreature(tableJ2, atacante);
                     }
 
                 }
             }
-
 
 
         } else return;

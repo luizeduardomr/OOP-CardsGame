@@ -32,8 +32,8 @@ public class GameWindow extends Application implements Observer {
         //Cria as tabs
         TabPane tabPane = new TabPane();
 
-        Tab tab1 = new Tab("Mão Jogador 1");
-        Tab tab2 = new Tab("Mão Jogador 2");
+        Tab tab1 = new Tab("Mão de " + Game.getInstance().getNomeGremistaJ1());
+        Tab tab2 = new Tab("Mão de " + Game.getInstance().getNomeColoradoJ2());
         Tab tab3 = new Tab("Mesa");
         //Tab tab4 = new Tab("Mesa Jogador 2");
 
@@ -178,8 +178,8 @@ public class GameWindow extends Application implements Observer {
                 case INVPLAY:
                     alert = new Alert(AlertType.WARNING);
                     alert.setTitle("Atenção !!");
-                    alert.setHeaderText("Jogada inválida, " + getPronomeDeTratamento());
-                    alert.setContentText("Era a vez do jogador " + eg.getArg());
+                    alert.setHeaderText("Questão de ordem, " + getPronomeDeTratamento());
+                    alert.setContentText("Era a vez do " + eg.getArg());
                     alert.showAndWait();
                     break;
                 case MUSTCLEAN:
