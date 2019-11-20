@@ -54,6 +54,11 @@ public class Game extends Observable {
         return nomeColoradoJ2;
     }
 
+    public String getJogadorAtivo(){
+        if (player==1) return getNomeGremistaJ1();
+        return getNomeColoradoJ2();
+    }
+
     public void nextPlayer() {
         player++;
         if (player == 3) {

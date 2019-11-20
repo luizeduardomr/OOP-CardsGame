@@ -3,10 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="6ad52ec9-1a84-42b0-80e9-9a3481ce6e7d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/gui/GameWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/gui/GameWindow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JogoCartasProfe/META-INF/JogoCartasProfe.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/gui/PlacarView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/gui/PlacarView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/BlueCreatures.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/BlueCreatures.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/Deck.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/gui/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/gui/GameWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/RedCreatures.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/RedCreatures.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/gui/PlacarView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/gui/PlacarView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/BlueCreatures.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/BlueCreatures.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Deck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/RedCreatures.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/RedCreatures.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574208142788</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="ataque funciona com pontos de vida corrigidos, pode colocar nome do jogador na aba game">
+      <created>1574274777409</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1574274777409</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -112,7 +126,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="as duas mesas estão numa tab só agora" />
-    <option name="LAST_COMMIT_MESSAGE" value="as duas mesas estão numa tab só agora" />
+    <MESSAGE value="ataque funciona com pontos de vida corrigidos, pode colocar nome do jogador na aba game" />
+    <option name="LAST_COMMIT_MESSAGE" value="ataque funciona com pontos de vida corrigidos, pode colocar nome do jogador na aba game" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

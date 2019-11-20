@@ -6,61 +6,66 @@ import java.util.Random;
 
 public class RedCreatures {
 
-    private List<CreatureCard> creatures;
+    private List<CreatureCard> smallCreatures;
+    private List<CreatureCard> bigCreatures;
 
     public RedCreatures() {
-        this.creatures = new ArrayList<>();
-        addRedCreatures();
+        this.smallCreatures = new ArrayList<>();
+        this.bigCreatures = new ArrayList<>();
+        addBigRedCreatures();
+        addSmallRedCreatures();
     }
 
-    private void addRedCreatures(){
+    private void addSmallRedCreatures() {
 
-        //CreatureCard ashenMonstrosity = new CreatureCard("ashen", "ashenimg", 9, 7,4,7, CreatureCard.Colour.RED);
-        //creatures.add(ashenMonstrosity);
+        CreatureCard aprendiz = new CreatureCard("aprendiz", "aprendizimg", 1, 1, 1, CreatureCard.Colour.RED);
+        smallCreatures.add(aprendiz);
 
-        //CreatureCard afflictedDeserter = new CreatureCard ("afflicted", "afflictedimg", 8, 3,2,4, CreatureCard.Colour.RED);
-        //creatures.add(afflictedDeserter);
-
-        //CreatureCard anabaBodyguard = new CreatureCard("anaba", "anabaimg", 7,2,3,4, CreatureCard.Colour.RED);
-        //creatures.add(anabaBodyguard);
-
-        CreatureCard aprendiz = new CreatureCard("aprendiz", "aprendizimg", 1,1,1, CreatureCard.Colour.RED);
-        creatures.add(aprendiz);
-
-        CreatureCard mek = new CreatureCard("mek", "mekimg", 1,1,1, CreatureCard.Colour.RED);
-        creatures.add(mek);
+        CreatureCard mek = new CreatureCard("mek", "mekimg", 1, 1, 1, CreatureCard.Colour.RED);
+        smallCreatures.add(mek);
 
         CreatureCard amor = new CreatureCard("amor", "amorimg", 3, 3, 2, CreatureCard.Colour.RED);
-        creatures.add(amor);
+        smallCreatures.add(amor);
 
-        CreatureCard Magnata = new CreatureCard("magnata", "magnataimg", 5,6,4, CreatureCard.Colour.RED);
-        creatures.add(Magnata);
+        CreatureCard forca = new CreatureCard("forca", "forcaimg", 2, 2, 2, CreatureCard.Colour.RED);
+        smallCreatures.add(forca);
 
-        CreatureCard forca = new CreatureCard("forca", "forcaimg", 2,2,2, CreatureCard.Colour.RED);
-        creatures.add(forca);
+        CreatureCard mago = new CreatureCard("mago", "magoimg", 3, 3, 3, CreatureCard.Colour.RED);
+        smallCreatures.add(mago);
 
-        CreatureCard IntelliJ = new CreatureCard("IntelliJ", "intellijimg", 5,5,4, CreatureCard.Colour.RED);
-        creatures.add(IntelliJ);
+        CreatureCard mexicans = new CreatureCard("mexicans", "meximg", 4, 4, 3, CreatureCard.Colour.RED);
+        smallCreatures.add(mexicans);
 
-        CreatureCard mago = new CreatureCard("mago", "magoimg", 3,3,3, CreatureCard.Colour.RED);
-        creatures.add(mago);
-
-        CreatureCard mexicans = new CreatureCard("mexicans", "meximg", 4,4,3, CreatureCard.Colour.RED);
-        creatures.add(mexicans);
-
-        CreatureCard ra = new CreatureCard("ra", "raimg", 1,2,1, CreatureCard.Colour.RED);
-        creatures.add(ra);
-
-
+        CreatureCard ra = new CreatureCard("ra", "raimg", 1, 2, 1, CreatureCard.Colour.RED);
+        smallCreatures.add(ra);
 
     }
 
-    public Card pickRandomCreature(){
+    private void addBigRedCreatures() {
+
+        CreatureCard IntelliJ = new CreatureCard("IntelliJ", "intellijimg", 5,5,4, CreatureCard.Colour.RED);
+        bigCreatures.add(IntelliJ);
+
+        CreatureCard Magnata = new CreatureCard("magnata", "magnataimg", 5, 6, 4, CreatureCard.Colour.RED);
+        smallCreatures.add(Magnata);
+
+    }
+
+    public Card pickRandomSmallCreature() {
         Random r = new Random();
         Card randomPickedCreature;
-        int tamanho = creatures.size();
+        int tamanho = smallCreatures.size();
         int n = r.nextInt(tamanho);
-        randomPickedCreature = creatures.get(n);
+        randomPickedCreature = smallCreatures.get(n);
+        return randomPickedCreature;
+    }
+
+    public Card pickRandomBigCreature() {
+        Random r = new Random();
+        Card randomPickedCreature;
+        int tamanho = bigCreatures.size();
+        int n = r.nextInt(tamanho);
+        randomPickedCreature = bigCreatures.get(n);
         return randomPickedCreature;
     }
 

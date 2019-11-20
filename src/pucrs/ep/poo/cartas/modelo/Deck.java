@@ -12,7 +12,8 @@ public class Deck extends Observable {
     //public int quantityOfCreatures = NCARDS/4;
     //public int getQuantityOfMagics = NCARDS/4;
     public int quantityOfManaSource = 30;
-    public int quantityOfCreatures = 30;
+    public int quantityOfSmallCreatures = 20;
+    public int quantityOfBigCreatures = 10;
     public int getQuantityOfMagics = 0;
     private List<Card> cartas;
 
@@ -30,8 +31,13 @@ public class Deck extends Observable {
 
             //jogador 1 creatures - cartas de 2 a 4 de forma aleatória
             BlueCreatures criaturasAzuis = new BlueCreatures();
-            for (int i = 0; i < quantityOfCreatures; i++) {
-                Card criatura = criaturasAzuis.pickRandomCreature();
+            for (int i = 0; i < quantityOfSmallCreatures; i++) {
+                Card criatura = criaturasAzuis.pickRandomSmallCreature();
+                cartas.add(criatura);
+            }
+
+            for (int i = 0; i < quantityOfBigCreatures; i++) {
+                Card criatura = criaturasAzuis.pickRandomBigCreature();
                 cartas.add(criatura);
             }
 
@@ -43,18 +49,23 @@ public class Deck extends Observable {
             }
         }
 
-        //montando deck do jogador 2 com as cartas de 6 até 10
+        //montando deck do jogador 2 - Colorado
         else if (jogador == 2) {
-            //jogador 2 manaSources - só recebe a carta 6
+            //jogador 2 manaSources
             for (int i = 0; i < quantityOfManaSource; i++) {
                 Card c = new TerrainCard("beira", "beiraimg", TerrainCard.Colour.RED);
                 cartas.add(c);
             }
 
-            //jogador 2 creatures - cartas de 7 a 9 de forma aleatória
+            //jogador 2 creatures
             RedCreatures criaturasVermelhas = new RedCreatures();
-            for (int i = 0; i < quantityOfCreatures; i++) {
-                Card criatura = criaturasVermelhas.pickRandomCreature();
+            for (int i = 0; i < quantityOfSmallCreatures; i++) {
+                Card criatura = criaturasVermelhas.pickRandomSmallCreature();
+                cartas.add(criatura);
+            }
+
+            for (int i = 0; i < quantityOfBigCreatures; i++) {
+                Card criatura = criaturasVermelhas.pickRandomBigCreature();
                 cartas.add(criatura);
             }
 
