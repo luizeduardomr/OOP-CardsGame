@@ -41,7 +41,7 @@ public class Game extends Observable {
         terrenoBaixado = false;
         cartaComprada = false;
         ataque = false;
-        nomeGremistaJ1 = "Lucas";
+        nomeGremistaJ1 = "Roberto";
         nomeColoradoJ2 = "Alexandre";
 
     }

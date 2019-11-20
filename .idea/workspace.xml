@@ -2,21 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ad52ec9-1a84-42b0-80e9-9a3481ce6e7d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/BlueSorceries.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/Deck.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/ImageFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/ImageFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/RedSorceries.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/SorceryCard$Colour.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/SorceryCard.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/BlueSorceries.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Deck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/ImageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/ImageFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/RedSorceries.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/SorceryCard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Hand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Hand.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,8 +45,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4539">
-              <caret line="319" column="14" selection-start-line="319" selection-start-column="14" selection-end-line="319" selection-end-column="14" />
+            <state relative-caret-position="255">
+              <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -65,8 +54,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Hand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="153">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
         </entry>
@@ -119,8 +108,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Deck.java" />
-        <option value="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Game.java" />
         <option value="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/ImageFactory.java" />
+        <option value="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Hand.java" />
+        <option value="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Game.java" />
       </list>
     </option>
   </component>
@@ -184,7 +174,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574283160951" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574284469356" />
     <property name="last_opened_file_path" value="$PATH_TO_FX$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -237,7 +227,7 @@
       <workItem from="1574109885511" duration="4820000" />
       <workItem from="1574168212852" duration="5136000" />
       <workItem from="1574257431025" duration="2820000" />
-      <workItem from="1574282827261" duration="327000" />
+      <workItem from="1574282827261" duration="1634000" />
     </task>
     <task id="LOCAL-00001" summary="as duas mesas estão numa tab só agora">
       <created>1574208142788</created>
@@ -253,15 +243,21 @@
       <option name="project" value="LOCAL" />
       <updated>1574274777409</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="deletadas classes não usadas">
+      <created>1574283195502</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1574283195502</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="327000" />
+    <option name="totallyTimeSpent" value="1634000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
@@ -333,7 +329,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="as duas mesas estão numa tab só agora" />
     <MESSAGE value="ataque funciona com pontos de vida corrigidos, pode colocar nome do jogador na aba game" />
-    <option name="LAST_COMMIT_MESSAGE" value="ataque funciona com pontos de vida corrigidos, pode colocar nome do jogador na aba game" />
+    <MESSAGE value="deletadas classes não usadas" />
+    <option name="LAST_COMMIT_MESSAGE" value="deletadas classes não usadas" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -347,38 +344,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/BlueCreatures.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Deck.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Hand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/ImageFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2">
           <caret line="37" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Table.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -396,10 +365,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Deck.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Table.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Hand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/BlueCreatures.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4539">
-          <caret line="319" column="14" selection-start-line="319" selection-start-column="14" selection-end-line="319" selection-end-column="14" />
+        <state relative-caret-position="255">
+          <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
         </state>
       </provider>
     </entry>

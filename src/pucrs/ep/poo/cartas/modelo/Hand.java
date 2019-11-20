@@ -16,10 +16,6 @@ public class Hand extends Observable {
         cartas = new ArrayList<Card>(NCARDS);
         selected = null;
 
-        //essas duas linhas são só para corrigir bug na hora que não comprar cartas
-        //BuyCard topoGrimorio = new BuyCard("topo", "imgBck", 0);
-        //cartas.add(topoGrimorio);
-
         for (int i = 0; i < NCARDS; i++) {
             Card c = grimorio.buyACard();
             cartas.add(c);
