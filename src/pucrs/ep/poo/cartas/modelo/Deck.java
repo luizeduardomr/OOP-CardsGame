@@ -11,16 +11,16 @@ public class Deck extends Observable {
     //public int quantityOfManaSource = NCARDS/2;
     //public int quantityOfCreatures = NCARDS/4;
     //public int getQuantityOfMagics = NCARDS/4;
-    public int quantityOfManaSource = 30;
-    public int quantityOfCreatures = 20;
-    public int getQuantityOfMagics = 10;
+    public int quantityOfManaSource = 60;
+    public int quantityOfCreatures = 0;
+    public int getQuantityOfMagics = 0;
     private List<Card> cartas;
 
     public Deck(int jogador) {
         cartas = new ArrayList<Card>(NCARDS);
         Random r = new Random();
 
-        //montando deck do jogador 1 com as cartas de 1 até 5
+        //montando deck do jogador 1
         if (jogador == 1) {
             //jogador 1 manaSources - só recebe a carta 1
             for (int i = 0; i < quantityOfManaSource; i++) {
@@ -47,7 +47,7 @@ public class Deck extends Observable {
         else if (jogador == 2) {
             //jogador 2 manaSources - só recebe a carta 6
             for (int i = 0; i < quantityOfManaSource; i++) {
-                Card c = new TerrainCard("mountain", "mountainimg", 6, TerrainCard.Colour.RED);
+                Card c = new TerrainCard("mountain", "islandimg", 6, TerrainCard.Colour.RED);
                 cartas.add(c);
             }
 

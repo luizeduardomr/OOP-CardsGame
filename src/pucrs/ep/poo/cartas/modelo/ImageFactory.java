@@ -19,7 +19,7 @@ public class ImageFactory{
     private String id2File(String imgId){
         switch(imgId){
             //terrenos azuis
-            case "islandimg" : return("file:./images/island.jpg");
+            case "islandimg" : return("file:./images/arenaa.png");
 
             //criaturas azuis
             case "aetherimg" : return("file:./images/aether.jpg");

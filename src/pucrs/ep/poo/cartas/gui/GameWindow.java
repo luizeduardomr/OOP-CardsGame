@@ -34,13 +34,13 @@ public class GameWindow extends Application implements Observer {
 
         Tab tab1 = new Tab("Mão Jogador 1");
         Tab tab2 = new Tab("Mão Jogador 2");
-        Tab tab3 = new Tab("Mesa Jogador 1");
-        Tab tab4 = new Tab("Mesa Jogador 2");
+        Tab tab3 = new Tab("Mesa");
+        //Tab tab4 = new Tab("Mesa Jogador 2");
 
         tabPane.getTabs().add(tab1);
         tabPane.getTabs().add(tab2);
         tabPane.getTabs().add(tab3);
-        tabPane.getTabs().add(tab4);
+        //tabPane.getTabs().add(tab4);
 
         //Cria o objeto placar
         PlacarView placar = new PlacarView();
@@ -51,6 +51,8 @@ public class GameWindow extends Application implements Observer {
         butNextPlayer1.setOnAction(e -> Game.getInstance().nextPlayer());
         Button butNextPlayer2 = new Button("Passar turno");
         butNextPlayer2.setOnAction(e -> Game.getInstance().nextPlayer());
+        Button butNextPlayerMesa = new Button("Passar turno");
+        butNextPlayerMesa.setOnAction(e -> Game.getInstance().nextPlayer());
 
         //Cria os botões para comprar carta
         Button butBuyOneCardJ1 = new Button("Comprar");
@@ -58,11 +60,9 @@ public class GameWindow extends Application implements Observer {
         Button butBuyOneCardJ2 = new Button("Comprar");
         butBuyOneCardJ2.setOnAction(e-> Game.getInstance().buyoneCard());
 
-        //Cria os botões de ataque
-        Button butAttackJ1 = new Button("Atacar");
-        butAttackJ1.setOnAction(e-> Game.getInstance().attack());
-        Button butAttackJ2 = new Button("Atacar");
-        butAttackJ2.setOnAction(e-> Game.getInstance().attack());
+        //Cria o botão de ataque
+        Button butAttack = new Button("Atacar");
+        butAttack.setOnAction(e-> Game.getInstance().attack());
 
         // Mão Jogador 1
         GridPane grid1 = new GridPane();
@@ -73,14 +73,13 @@ public class GameWindow extends Application implements Observer {
 
         HandView handJ1 = new HandView(1);
         ScrollPane sd1 = new ScrollPane();
-        sd1.setPrefSize(1500, 470);
+        sd1.setPrefSize(1500, 310);
         sd1.setContent(handJ1);
         grid1.add(sd1, 0, 0);
 
         grid1.add(placar, 0, 1);
-        grid1.add(butNextPlayer1, 1, 1);
-        grid1.add(butBuyOneCardJ1,1,2);
-        grid1.add(butAttackJ1,1,3);
+        grid1.add(butNextPlayer1, 0, 2);
+        grid1.add(butBuyOneCardJ1,0,3);
 
         //Mão Jogador 2
         GridPane grid2 = new GridPane();
@@ -91,48 +90,45 @@ public class GameWindow extends Application implements Observer {
 
         HandView handJ2 = new HandView(2);
         ScrollPane sd2 = new ScrollPane();
-        sd2.setPrefSize(1500, 470);
+        sd2.setPrefSize(1500, 310);
         sd2.setContent(handJ2);
         grid2.add(sd2, 0, 0);
 
         grid2.add(placar2, 0, 1);
-        grid2.add(butNextPlayer2, 1, 1);
-        grid2.add(butBuyOneCardJ2,1,2);
-        grid2.add(butAttackJ2,1,3);
+        grid2.add(butNextPlayer2, 0, 2);
+        grid2.add(butBuyOneCardJ2,0,3);
 
-        // Mesa Jogador 1
+        // Mesa
         GridPane grid3 = new GridPane();
         grid3.setAlignment(Pos.CENTER);
         grid3.setHgap(10);
         grid3.setVgap(10);
         grid3.setPadding(new Insets(25, 25, 25, 25));
 
+        //Mesa jogador 1
         TableView tableJ1 = new TableView(1);
         ScrollPane sd3 = new ScrollPane();
-        sd3.setPrefSize(1500, 470);
+        sd3.setPrefSize(1500, 310);
         sd3.setContent(tableJ1);
         grid3.add(sd3, 0, 0);
 
-        // Mesa Jogador 2
-        GridPane grid4 = new GridPane();
-        grid4.setAlignment(Pos.CENTER);
-        grid4.setHgap(10);
-        grid4.setVgap(10);
-        grid4.setPadding(new Insets(25, 25, 25, 25));
-
+        //Mesa jogador 2
         TableView tableJ2 = new TableView(2);
         ScrollPane sd4 = new ScrollPane();
-        sd4.setPrefSize(1500, 470);
+        sd4.setPrefSize(1500, 310);
         sd4.setContent(tableJ2);
-        grid4.add(sd4, 0, 0);
+        grid3.add(sd4, 0, 1);
+
+        //Botão "Atacar" e "Passar turno" na mesa
+        grid3.add(butAttack,0,2);
+        grid3.add(butNextPlayerMesa,0,3);
 
         //Coloca o conteúdo nas tabs adequadas
         tab1.setContent(grid1);
         tab2.setContent(grid2);
         tab3.setContent(grid3);
-        tab4.setContent(grid4);
 
-        //Cria a lista de observadores (???)
+        //Cria a lista de observadores
         ObservableList list = root.getChildren();
         list.add(tabPane);
 
