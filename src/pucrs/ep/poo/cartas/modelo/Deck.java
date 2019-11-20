@@ -8,13 +8,9 @@ import java.util.Random;
 public class Deck extends Observable {
 
     public static final int NCARDS = 60;
-    //public int quantityOfManaSource = NCARDS/2;
-    //public int quantityOfCreatures = NCARDS/4;
-    //public int getQuantityOfMagics = NCARDS/4;
     public int quantityOfManaSource = 30;
     public int quantityOfSmallCreatures = 20;
     public int quantityOfBigCreatures = 10;
-    public int getQuantityOfMagics = 0;
     private List<Card> cartas;
 
     public Deck(int jogador) {
@@ -41,12 +37,7 @@ public class Deck extends Observable {
                 cartas.add(criatura);
             }
 
-            //jogador 1 feitiços
-            BlueSorceries magiasAzuis = new BlueSorceries();
-            for (int i = 0; i < getQuantityOfMagics; i++) {
-                Card magia = magiasAzuis.pickRandomSorcery();
-                cartas.add(magia);
-            }
+
         }
 
         //montando deck do jogador 2 - Colorado
@@ -69,12 +60,7 @@ public class Deck extends Observable {
                 cartas.add(criatura);
             }
 
-            //jogador 2 feitiços
-            RedSorceries magiasVermelhas = new RedSorceries();
-            for (int i = 0; i < getQuantityOfMagics; i++) {
-                Card magia = magiasVermelhas.pickRandomSorcery();
-                cartas.add(magia);
-            }
+
         }
     }
 

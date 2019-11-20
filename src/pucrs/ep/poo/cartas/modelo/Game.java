@@ -296,8 +296,6 @@ public class Game extends Observable {
                 manaReserveJ1++;
             } else if (carta instanceof CreatureCard && manaReserveJ1 >= ((CreatureCard) carta).getCost()) {
                 manaReserveJ1 = manaReserveJ1 - ((CreatureCard) carta).getCost();
-            } else if (carta instanceof SorceryCard && manaReserveJ1 >= ((SorceryCard) carta).getCost()) {
-                manaReserveJ1 = manaReserveJ1 - ((SorceryCard) carta).getCost();
             } else {
                 GameEvent gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.INVCARD, "");
                 setChanged();
@@ -319,8 +317,6 @@ public class Game extends Observable {
                 manaReserveJ2++;
             } else if (carta instanceof CreatureCard && manaReserveJ2 >= ((CreatureCard) carta).getCost()) {
                 manaReserveJ2 = manaReserveJ2 - ((CreatureCard) carta).getCost();
-            } else if (carta instanceof SorceryCard && manaReserveJ2 >= ((SorceryCard) carta).getCost()) {
-                manaReserveJ2 = manaReserveJ2 - ((SorceryCard) carta).getCost();
             } else {
                 GameEvent gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.INVCARD, "");
                 setChanged();

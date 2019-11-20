@@ -36,9 +36,6 @@ public class ImageFactory{
             case "renatoimg" : return("file:./images/renato.png");
             case "robertoimg" : return("file:./images/roberto.png");
 
-            //magicas azuis
-            case "aerialimg" : return("file:./images/aerial.jpg");
-
             //terrenos vermelhos
             case "beiraimg" : return("file:./images/beira.png");
 
@@ -55,9 +52,6 @@ public class ImageFactory{
             case "mekimg" : return("file:./images/mek.png");
             case "meximg" : return("file:./images/mex.png");
             case "raimg" : return("file:./images/ra.png");
-
-            //magicas vermelhas
-            case "agilityimg" : return("file:./images/agility.jpg");
 
             //legacy
             case "imgBck" : return("file:./images/Back.png");
