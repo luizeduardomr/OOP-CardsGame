@@ -146,6 +146,12 @@ public class Game extends Observable {
                 }
                 lifeJ2 -= dano;
                 System.out.println("Life J2: " + lifeJ2);
+                //Verifica se o jogador perdeu toda vida
+                if(lifeJ2<=18){
+                    GameEvent gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.WIN, "Jogador 1");
+                    setChanged();
+                    notifyObservers((Object) gameEvent);
+                }
             }
 
             for (int i=0; i<numeroDeAtaques; i++){
@@ -200,6 +206,12 @@ public class Game extends Observable {
                 }
                 lifeJ1 -= dano;
                 System.out.println("Life J1: " + lifeJ1);
+                //Verifica se o jogador perdeu toda vida
+                if(lifeJ1<=18){
+                    GameEvent gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.WIN, "Jogador 2");
+                    setChanged();
+                    notifyObservers((Object) gameEvent);
+                }
             }
 
             for (int i=0; i<numeroDeAtaques; i++){

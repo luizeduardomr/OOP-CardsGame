@@ -203,6 +203,13 @@ public class GameWindow extends Application implements Observer {
                     alert.setContentText("Carta inválida, " + getPronomeDeTratamento());
                     alert.showAndWait();
                     break;
+                case WIN:
+                    alert = new Alert(AlertType.WARNING);
+                    alert.setTitle("PARABÉNS !!");
+                    alert.setHeaderText(null);
+                    alert.setContentText(" " + ((GameEvent) arg).getArg() + " venceu!");
+                    alert.showAndWait();
+                    break;
             }
         }
     }

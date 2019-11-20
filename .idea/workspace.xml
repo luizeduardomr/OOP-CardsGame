@@ -2,66 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ad52ec9-1a84-42b0-80e9-9a3481ce6e7d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/images/Aprendiz.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Arena.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Beira.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/BlueJ.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/IntelliJ (Custom).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Magnata.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Mek.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/alex.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/aloisio.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/amor.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/forca.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/gabi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/lucas.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/luiz.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/mago.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/mex.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/nos.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/pedro.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/ra.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/renato.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/roberto.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/originais/Backori.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/originais/Cinco.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/originais/Dez.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/originais/Dois.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/originais/Nove.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/originais/Oito.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/originais/Quatro.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/originais/Seis.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/originais/Sete.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/originais/Tres.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/originais/Um.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/gui/GameWindow$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/gui/GameWindow$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/gui/GameWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/gui/GameWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/BlueCreatures.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/BlueCreatures.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/BlueSorceries.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/BlueSorceries.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/BuyCard.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/Card.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/CreatureCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/CreatureCard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/Deck.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/ImageFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/ImageFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/RedCreatures.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/RedCreatures.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/RedSorceries.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/RedSorceries.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/SorceryCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/SorceryCard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/TerrainCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/TerrainCard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/gui/GameEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/gui/GameEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/gui/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/gui/GameWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/BlueCreatures.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/BlueCreatures.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/BlueSorceries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/BlueSorceries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/BuyCard.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/CreatureCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/CreatureCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Deck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/ImageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/ImageFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/RedCreatures.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/RedCreatures.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/RedSorceries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/RedSorceries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/SorceryCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/SorceryCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/TerrainCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/TerrainCard.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -142,6 +86,7 @@
       <updated>1574109880166</updated>
       <workItem from="1574109885511" duration="4820000" />
       <workItem from="1574168212852" duration="5136000" />
+      <workItem from="1574257431025" duration="915000" />
     </task>
     <task id="LOCAL-00001" summary="as duas mesas estão numa tab só agora">
       <created>1574208142788</created>
