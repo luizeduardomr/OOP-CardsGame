@@ -137,17 +137,22 @@ public class Game extends Observable {
             //Se há mais atacantes, calcula o dano
             if (atacantes.size()>defensores.size()){
                 numeroDeAtaques = defensores.size();
-                int diferenca = atacantes.size() - defensores.size();
                 int dano = 0;
-                for(int j = atacantes.size()-1; j>=diferenca-1; j--){
-                    CreatureCard atacante = atacantes.get(j);
-                    dano += atacante.getAttack();
-                    System.out.println("Iteração número " + j);
+                if(atacantes.size() == 1){
+                    dano += atacantes.get(0).getAttack();
+                }else{
+                    int diferenca = atacantes.size() - defensores.size();
+                    for(int j = atacantes.size()-1; j>diferenca-1; j--){
+                        CreatureCard atacante = atacantes.get(j);
+                        dano += atacante.getAttack();
+                        System.out.println("Iteração número " + j);
+                    }
                 }
+
                 lifeJ2 -= dano;
                 System.out.println("Life J2: " + lifeJ2);
                 //Verifica se o jogador perdeu toda vida
-                if(lifeJ2<=18){
+                if(lifeJ2<=0){
                     GameEvent gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.WIN, "Jogador 1");
                     setChanged();
                     notifyObservers((Object) gameEvent);
@@ -197,17 +202,22 @@ public class Game extends Observable {
             int numeroDeAtaques = atacantes.size();
             if (atacantes.size()>defensores.size()){
                 numeroDeAtaques = defensores.size();
-                int diferenca = atacantes.size() - defensores.size();
                 int dano = 0;
-                for(int j = atacantes.size()-1; j>=diferenca-1; j--){
-                    CreatureCard atacante = atacantes.get(j);
-                    dano += atacante.getAttack();
-                    System.out.println("Iteração número " + j);
+                if(atacantes.size() == 1){
+                    dano += atacantes.get(0).getAttack();
+                }else{
+                    int diferenca = atacantes.size() - defensores.size();
+                    for(int j = atacantes.size()-1; j>diferenca-1; j--){
+                        CreatureCard atacante = atacantes.get(j);
+                        dano += atacante.getAttack();
+                        System.out.println("Iteração número " + j);
+                    }
                 }
+
                 lifeJ1 -= dano;
                 System.out.println("Life J1: " + lifeJ1);
                 //Verifica se o jogador perdeu toda vida
-                if(lifeJ1<=18){
+                if(lifeJ1<=0){
                     GameEvent gameEvent = new GameEvent(GameEvent.Target.GWIN, GameEvent.Action.WIN, "Jogador 2");
                     setChanged();
                     notifyObservers((Object) gameEvent);
