@@ -8,9 +8,9 @@ import java.util.Random;
 public class Deck extends Observable {
 
     public static final int NCARDS = 60;
-    public int quantityOfManaSource = 30;
-    public int quantityOfSmallCreatures = 20;
-    public int quantityOfBigCreatures = 10;
+    public int quantityOfManaSource = 25;
+    public int quantityOfSmallCreatures = 23;
+    public int quantityOfBigCreatures = 12;
     private List<Card> cartas;
 
     public Deck(int jogador) {

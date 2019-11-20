@@ -7,7 +7,7 @@ import java.util.*;
 
 // Esta classe tem de ser um container de cartas observavel ...
 public class Hand extends Observable {
-    public static final int NCARDS = 12;
+    public static final int NCARDS = 10;
     private List<Card> cartas;
     private Card selected;
     private Card buyedCard;
