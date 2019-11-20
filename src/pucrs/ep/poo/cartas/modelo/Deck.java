@@ -11,8 +11,8 @@ public class Deck extends Observable {
     //public int quantityOfManaSource = NCARDS/2;
     //public int quantityOfCreatures = NCARDS/4;
     //public int getQuantityOfMagics = NCARDS/4;
-    public int quantityOfManaSource = 60;
-    public int quantityOfCreatures = 0;
+    public int quantityOfManaSource = 30;
+    public int quantityOfCreatures = 30;
     public int getQuantityOfMagics = 0;
     private List<Card> cartas;
 
@@ -24,7 +24,7 @@ public class Deck extends Observable {
         if (jogador == 1) {
             //jogador 1 manaSources - só recebe a carta 1
             for (int i = 0; i < quantityOfManaSource; i++) {
-                Card c = new TerrainCard("island", "islandimg", 1, TerrainCard.Colour.BLUE);
+                Card c = new TerrainCard("arena", "arenaimg", TerrainCard.Colour.BLUE);
                 cartas.add(c);
             }
 
@@ -47,7 +47,7 @@ public class Deck extends Observable {
         else if (jogador == 2) {
             //jogador 2 manaSources - só recebe a carta 6
             for (int i = 0; i < quantityOfManaSource; i++) {
-                Card c = new TerrainCard("mountain", "islandimg", 6, TerrainCard.Colour.RED);
+                Card c = new TerrainCard("beira", "beiraimg", TerrainCard.Colour.RED);
                 cartas.add(c);
             }
 

@@ -19,23 +19,42 @@ public class ImageFactory{
     private String id2File(String imgId){
         switch(imgId){
             //terrenos azuis
-            case "islandimg" : return("file:./images/arenaa.png");
+            case "arenaimg" : return("file:./images/arena.png");
 
             //criaturas azuis
             case "aetherimg" : return("file:./images/aether.jpg");
             case "aberrantimg" : return("file:./images/aberrant.jpg");
             case "aeronautimg" : return("file:./images/aeronaut.jpg");
+            case "aleximg" : return("file:./images/alex.png");
+            case "aloisioimg" : return("file:./images/aloisio.png");
+            case "gabiimg" : return("file:./images/gabi.png");
+            case "bluejimg" : return("file:./images/bluej.png");
+            case "lucasimg" : return("file:./images/lucas.png");
+            case "luizimg" : return("file:./images/luiz.png");
+            case "nosimg" : return("file:./images/nos.png");
+            case "pedroimg" : return("file:./images/pedro.png");
+            case "renatoimg" : return("file:./images/renato.png");
+            case "robertoimg" : return("file:./images/roberto.png");
 
             //magicas azuis
             case "aerialimg" : return("file:./images/aerial.jpg");
 
             //terrenos vermelhos
-            case "mountainimg" : return("file:./images/mountain.jpg");
+            case "beiraimg" : return("file:./images/beira.png");
 
-            //criatureas vermelhas
+            //criaturas vermelhas
             case "anabaimg" : return("file:./images/anaba.jpg");
             case "afflictedimg" : return("file:./images/afflicted.jpg");
             case "ashenimg" : return("file:./images/ashen.jpg");
+            case "amorimg" : return("file:./images/amor.png");
+            case "aprendizimg" : return("file:./images/aprendiz.png");
+            case "forcaimg" : return("file:./images/forca.png");
+            case "intellijimg" : return("file:./images/intellij.png");
+            case "magnataimg" : return("file:./images/magnata.png");
+            case "magoimg" : return("file:./images/mago.png");
+            case "mekimg" : return("file:./images/mek.png");
+            case "meximg" : return("file:./images/mex.png");
+            case "raimg" : return("file:./images/ra.png");
 
             //magicas vermelhas
             case "agilityimg" : return("file:./images/agility.jpg");

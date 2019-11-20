@@ -7,13 +7,11 @@ import java.util.*;
 public class Card extends Observable{
     private String id;
     private String imageId;
-    private int value;
     private boolean turned;
     
-    public Card(String anId,String anImageId,int val){
+    public Card(String anId,String anImageId){
         id = anId;
         imageId = anImageId;
-        value = val;
         turned = false;
     }
     
@@ -25,10 +23,6 @@ public class Card extends Observable{
         return(imageId);
     }
     
-    public int getValue(){
-        return(value);
-    }
-
     public boolean isTurned(){
         return(turned);
     }
@@ -36,7 +30,6 @@ public class Card extends Observable{
     public String toString(){
         return "Carta: " + id + " ";
     }
-
 
     public void turn(){
         if(turned == true){

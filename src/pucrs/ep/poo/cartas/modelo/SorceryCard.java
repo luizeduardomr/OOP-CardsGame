@@ -8,8 +8,8 @@ public class SorceryCard extends Card {
     private int cost;
 
 
-    public SorceryCard(String anId, String anImageId, int val, Colour cor, int custo) {
-        super(anId, anImageId, val);
+    public SorceryCard(String anId, String anImageId, Colour cor, int custo) {
+        super(anId, anImageId);
         colour = cor;
         cost = custo;
     }

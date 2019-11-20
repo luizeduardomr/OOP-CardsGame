@@ -15,8 +15,8 @@ public class RedSorceries {
 
     private void addRedSorceries(){
 
-        SorceryCard agility = new SorceryCard("agility", "agilityimg",10, SorceryCard.Colour.RED, 2);
-        magias.add(agility);
+        //SorceryCard agility = new SorceryCard("agility", "agilityimg",10, SorceryCard.Colour.RED, 2);
+        //magias.add(agility);
 
     }
 

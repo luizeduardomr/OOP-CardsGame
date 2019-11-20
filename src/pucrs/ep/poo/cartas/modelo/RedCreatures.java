@@ -15,14 +15,22 @@ public class RedCreatures {
 
     private void addRedCreatures(){
 
-        CreatureCard ashenMonstrosity = new CreatureCard("ashen", "ashenimg", 9, 7,4,7, CreatureCard.Colour.RED);
-        creatures.add(ashenMonstrosity);
+        //CreatureCard ashenMonstrosity = new CreatureCard("ashen", "ashenimg", 9, 7,4,7, CreatureCard.Colour.RED);
+        //creatures.add(ashenMonstrosity);
 
-        CreatureCard afflictedDeserter = new CreatureCard ("afflicted", "afflictedimg", 8, 3,2,4, CreatureCard.Colour.RED);
-        creatures.add(afflictedDeserter);
+        //CreatureCard afflictedDeserter = new CreatureCard ("afflicted", "afflictedimg", 8, 3,2,4, CreatureCard.Colour.RED);
+        //creatures.add(afflictedDeserter);
 
-        CreatureCard anabaBodyguard = new CreatureCard("anaba", "anabaimg", 7,2,3,4, CreatureCard.Colour.RED);
-        creatures.add(anabaBodyguard);
+        //CreatureCard anabaBodyguard = new CreatureCard("anaba", "anabaimg", 7,2,3,4, CreatureCard.Colour.RED);
+        //creatures.add(anabaBodyguard);
+
+        CreatureCard aprendiz = new CreatureCard("aprendiz", "aprendizimg", 1,1,1, CreatureCard.Colour.RED);
+        creatures.add(aprendiz);
+
+        CreatureCard mek = new CreatureCard("mek", "mekimg", 1,1,1, CreatureCard.Colour.RED);
+        creatures.add(mek);
+
+
 
     }
 

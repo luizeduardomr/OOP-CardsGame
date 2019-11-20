@@ -56,13 +56,13 @@ public class GameWindow extends Application implements Observer {
 
         //Cria os botões para comprar carta
         Button butBuyOneCardJ1 = new Button("Comprar");
-        butBuyOneCardJ1.setOnAction(e-> Game.getInstance().buyoneCard());
+        butBuyOneCardJ1.setOnAction(e -> Game.getInstance().buyoneCard());
         Button butBuyOneCardJ2 = new Button("Comprar");
-        butBuyOneCardJ2.setOnAction(e-> Game.getInstance().buyoneCard());
+        butBuyOneCardJ2.setOnAction(e -> Game.getInstance().buyoneCard());
 
         //Cria o botão de ataque
         Button butAttack = new Button("Atacar");
-        butAttack.setOnAction(e-> Game.getInstance().attack());
+        butAttack.setOnAction(e -> Game.getInstance().attack());
 
         // Mão Jogador 1
         GridPane grid1 = new GridPane();
@@ -73,13 +73,13 @@ public class GameWindow extends Application implements Observer {
 
         HandView handJ1 = new HandView(1);
         ScrollPane sd1 = new ScrollPane();
-        sd1.setPrefSize(1500, 310);
+        sd1.setPrefSize(1500, 345);
         sd1.setContent(handJ1);
         grid1.add(sd1, 0, 0);
 
         grid1.add(placar, 0, 1);
         grid1.add(butNextPlayer1, 0, 2);
-        grid1.add(butBuyOneCardJ1,0,3);
+        grid1.add(butBuyOneCardJ1, 0, 3);
 
         //Mão Jogador 2
         GridPane grid2 = new GridPane();
@@ -90,13 +90,13 @@ public class GameWindow extends Application implements Observer {
 
         HandView handJ2 = new HandView(2);
         ScrollPane sd2 = new ScrollPane();
-        sd2.setPrefSize(1500, 310);
+        sd2.setPrefSize(1500, 345);
         sd2.setContent(handJ2);
         grid2.add(sd2, 0, 0);
 
         grid2.add(placar2, 0, 1);
         grid2.add(butNextPlayer2, 0, 2);
-        grid2.add(butBuyOneCardJ2,0,3);
+        grid2.add(butBuyOneCardJ2, 0, 3);
 
         // Mesa
         GridPane grid3 = new GridPane();
@@ -108,20 +108,20 @@ public class GameWindow extends Application implements Observer {
         //Mesa jogador 1
         TableView tableJ1 = new TableView(1);
         ScrollPane sd3 = new ScrollPane();
-        sd3.setPrefSize(1500, 310);
+        sd3.setPrefSize(1500, 345);
         sd3.setContent(tableJ1);
         grid3.add(sd3, 0, 0);
 
         //Mesa jogador 2
         TableView tableJ2 = new TableView(2);
         ScrollPane sd4 = new ScrollPane();
-        sd4.setPrefSize(1500, 310);
+        sd4.setPrefSize(1500, 345);
         sd4.setContent(tableJ2);
         grid3.add(sd4, 0, 1);
 
         //Botão "Atacar" e "Passar turno" na mesa
-        grid3.add(butAttack,0,2);
-        grid3.add(butNextPlayerMesa,0,3);
+        grid3.add(butAttack, 0, 2);
+        grid3.add(butNextPlayerMesa, 0, 3);
 
         //Coloca o conteúdo nas tabs adequadas
         tab1.setContent(grid1);
@@ -139,6 +139,30 @@ public class GameWindow extends Application implements Observer {
         primaryStage.show();
     }
 
+    public String getPronomeDeTratamento() {
+        Random rng = new Random();
+        String pronome ="";
+        ArrayList<String> pronomes = new ArrayList<>();
+
+        pronomes.add("meu querido!!");
+        pronomes.add("comandante!");
+        pronomes.add("professor!");
+        pronomes.add("meu consagrado!");
+        pronomes.add("bonitão!");
+        pronomes.add("mestre!");
+        pronomes.add("maestro!");
+        pronomes.add("pô!");
+        pronomes.add("meu guru!");
+        pronomes.add("chefe!");
+        pronomes.add("doutor!");
+
+        int n = rng.nextInt(pronomes.size());
+
+        pronome = pronomes.get(n);
+
+        return pronome;
+    }
+
     @Override
     public void update(Observable o, Object arg) {
         Alert alert;
@@ -154,7 +178,7 @@ public class GameWindow extends Application implements Observer {
                 case INVPLAY:
                     alert = new Alert(AlertType.WARNING);
                     alert.setTitle("Atenção !!");
-                    alert.setHeaderText("Jogada inválida!!");
+                    alert.setHeaderText("Jogada inválida, " + getPronomeDeTratamento());
                     alert.setContentText("Era a vez do jogador " + eg.getArg());
                     alert.showAndWait();
                     break;
@@ -176,7 +200,7 @@ public class GameWindow extends Application implements Observer {
                     alert = new Alert(AlertType.WARNING);
                     alert.setTitle("Atenção !!");
                     alert.setHeaderText(null);
-                    alert.setContentText("Carta inválida, meu querido!!");
+                    alert.setContentText("Carta inválida, " + getPronomeDeTratamento());
                     alert.showAndWait();
                     break;
             }

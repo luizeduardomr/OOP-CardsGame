@@ -6,8 +6,8 @@ public class TerrainCard extends Card {
 
     private Colour colour;
 
-    public TerrainCard(String anId, String anImageId, int val, Colour cor) {
-        super(anId, anImageId, val);
+    public TerrainCard(String anId, String anImageId, Colour cor) {
+        super(anId, anImageId);
         colour = cor;
     }
 

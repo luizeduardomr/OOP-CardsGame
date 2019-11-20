@@ -14,8 +14,8 @@ public class BlueSorceries {
 
     private void addBlueSorceries(){
 
-        SorceryCard aerial = new SorceryCard("aerial", "aerialimg",5, SorceryCard.Colour.BLUE, 1);
-        magias.add(aerial);
+        //SorceryCard aerial = new SorceryCard("aerial", "aerialimg",5, SorceryCard.Colour.BLUE, 1);
+        //magias.add(aerial);
 
     }
 

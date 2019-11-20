@@ -9,8 +9,8 @@ public class CreatureCard extends Card {
     private int cost;
     private Colour colour;
 
-    public CreatureCard(String anId, String anImageId, int val, int ataque, int defesa, int custo, Colour cor) {
-        super(anId, anImageId, val);
+    public CreatureCard(String anId, String anImageId, int ataque, int defesa, int custo, Colour cor) {
+        super(anId, anImageId);
         attack = ataque;
         defense = defesa;
         cost = custo;

@@ -15,14 +15,29 @@ public class BlueCreatures {
 
     private void addBlueCreatures(){
 
-        CreatureCard aethersquallAncient = new CreatureCard("aether", "aetherimg", 2, 6,6,7, CreatureCard.Colour.BLUE);
-        creatures.add(aethersquallAncient);
+        //CreatureCard aethersquallAncient = new CreatureCard("aether", "aetherimg", 2, 6,6,7, CreatureCard.Colour.BLUE);
+        //creatures.add(aethersquallAncient);
 
-        CreatureCard aeronautTinkerer = new CreatureCard ("aeronaut", "aeronautimg", 3, 2,3,3, CreatureCard.Colour.BLUE);
-        creatures.add(aeronautTinkerer);
+        //CreatureCard aeronautTinkerer = new CreatureCard ("aeronaut", "aeronautimg", 3, 2,3,3, CreatureCard.Colour.BLUE);
+        //creatures.add(aeronautTinkerer);
 
-        CreatureCard aberrantResearcher = new CreatureCard("aberrant", "aberrantimg", 4,3,2,4, CreatureCard.Colour.BLUE);
-        creatures.add(aberrantResearcher);
+        //CreatureCard aberrantResearcher = new CreatureCard("aberrant", "aberrantimg", 4,3,2,4, CreatureCard.Colour.BLUE);
+        //creatures.add(aberrantResearcher);
+
+        CreatureCard roberto = new CreatureCard("roberto", "robertoimg", 1,1,1, CreatureCard.Colour.BLUE);
+        creatures.add(roberto);
+
+        CreatureCard luiz = new CreatureCard("luiz", "luizimg", 1,1,1,CreatureCard.Colour.BLUE);
+        creatures.add(luiz);
+
+        CreatureCard lucas = new CreatureCard("lucas", "lucasimg", 1, 1, 1, CreatureCard.Colour.BLUE);
+        creatures.add(lucas);
+
+        CreatureCard pedro = new CreatureCard("pedro", "pedroimg", 0,1,2,CreatureCard.Colour.BLUE);
+        creatures.add(pedro);
+
+
+
 
     }
 
