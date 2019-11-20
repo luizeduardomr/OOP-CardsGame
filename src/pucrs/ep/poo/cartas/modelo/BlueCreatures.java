@@ -36,6 +36,27 @@ public class BlueCreatures {
         CreatureCard pedro = new CreatureCard("pedro", "pedroimg", 0,1,2,CreatureCard.Colour.BLUE);
         creatures.add(pedro);
 
+        CreatureCard alex = new CreatureCard("alex", "aleximg", 3, 5, 4,CreatureCard.Colour.BLUE);
+        creatures.add(alex);
+
+        CreatureCard aloisio = new CreatureCard("aloisio", "aloisioimg", 2, 1, 3, CreatureCard.Colour.BLUE);
+        creatures.add(aloisio);
+
+        CreatureCard BlueJ = new CreatureCard("BlueJ", "bluejimg",4,4,5, CreatureCard.Colour.BLUE);
+        creatures.add(BlueJ);
+
+        CreatureCard gabi = new CreatureCard("gabi", "gabiimg", 3,2,4,CreatureCard.Colour.BLUE);
+        creatures.add(gabi);
+
+        CreatureCard nos = new CreatureCard("nos", "nosimg", 3,3,4, CreatureCard.Colour.BLUE);
+        creatures.add(nos);
+
+        //CreatureCard Padawan = new CreatureCard("Padawan", "Padawanimg", 1,1,1, CreatureCard.Colour.BLUE);
+        //creatures.add(Padawan);
+
+        CreatureCard renato = new CreatureCard("renato", "renatoimg", 5,5, 6, CreatureCard.Colour.BLUE);
+        creatures.add(renato);
+
 
 
 

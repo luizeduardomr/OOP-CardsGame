@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6ad52ec9-1a84-42b0-80e9-9a3481ce6e7d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JogoCartasProfe/pucrs/ep/poo/cartas/modelo/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Arena.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Arena.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Beira.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/Beira.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/BlueCreatures.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pucrs/ep/poo/cartas/modelo/BlueCreatures.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
